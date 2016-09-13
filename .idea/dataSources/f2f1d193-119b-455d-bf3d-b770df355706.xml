@@ -1,0 +1,104 @@
+<dataSource name="MySQL - studentmanage@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="studentmanage">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema" />
+    <schema id="3" name="mysql" />
+    <schema id="4" name="performance_schema" />
+    <schema id="5" name="sys" />
+    <table id="6" parent="1" name="user" />
+    <table id="7" parent="1" name="groups" />
+    <table id="8" parent="1" name="relation" />
+    <column id="9" parent="6" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="6" name="name">
+      <mandatory>1</mandatory>
+      <data-type>char(10)|0</data-type>
+    </column>
+    <column id="11" parent="6" name="email">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="12" parent="6" name="qq">
+      <mandatory>1</mandatory>
+      <data-type>char(10)|0</data-type>
+    </column>
+    <column id="13" parent="6" name="major">
+      <mandatory>1</mandatory>
+      <data-type>char(15)|0</data-type>
+    </column>
+    <column id="14" parent="6" name="password">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="15" parent="6" name="sex">
+      <mandatory>1</mandatory>
+      <data-type>char(2)|0</data-type>
+    </column>
+    <column id="16" parent="6" name="info">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="17" parent="6" name="telephone">
+      <mandatory>1</mandatory>
+      <data-type>char(11)|0</data-type>
+    </column>
+    <key id="18" parent="6" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="19" parent="7" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="20" parent="7" name="name">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="21" parent="7" name="teacher">
+      <mandatory>1</mandatory>
+      <data-type>char(15)|0</data-type>
+    </column>
+    <column id="22" parent="7" name="date">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="23" parent="7" name="organization">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="24" parent="7" name="info">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="25" parent="7" name="creatid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="26" parent="7" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="27" parent="8" name="uid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="28" parent="8" name="gid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="29" parent="8" name="uname">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="30" parent="8" name="gname">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+  </database-model>
+</dataSource>
