@@ -1,16 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL - studentmanage@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
     <schema id="1" name="studentmanage">
       <visible>1</visible>
     </schema>
-    <schema id="2" name="information_schema" />
-    <schema id="3" name="mysql" />
-    <schema id="4" name="performance_schema" />
-    <schema id="5" name="sys" />
-    <table id="6" parent="1" name="user" />
-    <table id="7" parent="1" name="groups" />
-    <table id="8" parent="1" name="relation" />
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="sys"/>
+    <table id="6" parent="1" name="user"/>
+    <table id="7" parent="1" name="groups">
+      <comment>社团信息表</comment>
+    </table>
+    <table id="8" parent="1" name="relation"/>
     <column id="9" parent="6" name="id">
+      <comment>id</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
@@ -29,7 +33,7 @@
     </column>
     <column id="13" parent="6" name="major">
       <mandatory>1</mandatory>
-      <data-type>char(15)|0</data-type>
+      <data-type>char(30)|0</data-type>
     </column>
     <column id="14" parent="6" name="password">
       <mandatory>1</mandatory>
@@ -52,31 +56,38 @@
       <primary>1</primary>
     </key>
     <column id="19" parent="7" name="id">
+      <comment>id</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
     <column id="20" parent="7" name="name">
+      <comment>社团名称</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="21" parent="7" name="teacher">
+      <comment>指导老师姓名</comment>
       <mandatory>1</mandatory>
       <data-type>char(15)|0</data-type>
     </column>
     <column id="22" parent="7" name="date">
+      <comment>社团创建日期</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="23" parent="7" name="organization">
+      <comment>社团所属机构</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="24" parent="7" name="info">
+      <comment>社团信息</comment>
       <mandatory>1</mandatory>
       <data-type>text|0</data-type>
     </column>
     <column id="25" parent="7" name="creatid">
+      <comment>创建者id</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
@@ -100,5 +111,15 @@
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
+    <index id="31" parent="8" name="relation_groups_id_name_fk">
+      <columns>gid
+gname</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="32" parent="8" name="relation_user_id_name_fk">
+      <columns>uid
+uname</columns>
+      <desc-columns></desc-columns>
+    </index>
   </database-model>
 </dataSource>

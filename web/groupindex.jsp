@@ -29,6 +29,7 @@
       <h2 align="center" style="color: #0f88eb">社团管理系统</h2>
       <h5 align="center">用户名：<%=session.getAttribute("user_name") %></h5>
       <p><a href="Group-creat.jsp" class="button button-big button-fill button-danger">创建社团 </a></p>
+      <p><a href="admin/Admin-list" class="button button-big button-fill button-danger">管理社团 </a></p>
       <p><a href="group/Group-list" class="button button-big button-fill button-success">加入社团 </a></p>
     </div>
   </div>

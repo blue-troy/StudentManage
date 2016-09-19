@@ -25,6 +25,17 @@
         </action>
         <action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">
             <result>/{1}-{2}.jsp</result>
+            <result name="groupindex">/groupindex.jsp</result>
+            <exception-mapping result="error" exception="java.sql.SQLException"/>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+    <package name="admin" namespace="/admin" extends="struts-default">
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">
+            <result>/{1}-{2}.jsp</result>
             <exception-mapping result="error" exception="java.sql.SQLException"/>
             <result name="error">/error.jsp</result>
         </action>

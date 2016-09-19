@@ -28,19 +28,20 @@ public class GroupAction extends ActionSupport{
         Map session = actionContext.getSession();
         this.group.setCreatid(((Integer) session.get("user_id")).intValue());
         this.groupService.creat(this.group);
-        return "success";
+        return "groupindex";
     }
     public  String list() throws SQLException {
         this.groups = this.groupService.list(this.gname);
         return "success";
     }
-    public void join()throws Exception{
+    public String join()throws Exception{
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();
         this.setUid(((Integer) session.get("user_id")).intValue());
         this.setUname((String) session.get("user_name"));
 
         this.groupService.join(this.getUid(),this.getUname(),this.getGid(),this.getGname());
+        return "groupindex";
     }
 
     public Group getGroup() {
