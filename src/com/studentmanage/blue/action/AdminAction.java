@@ -24,6 +24,12 @@ public class AdminAction extends ActionSupport {
         this.users = this.adminService.list(((Integer) session.get("user_id")).intValue());
         return "success";
     }
+    public String alllist() throws SQLException {
+        ActionContext actionContext = ActionContext.getContext();
+        Map session = actionContext.getSession();
+        this.users = this.adminService.list(((Integer) session.get("user_id")).intValue());
+        return "success";
+    }
 
 
     public User getUser() {
