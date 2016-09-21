@@ -36,6 +36,10 @@
                     <span class="icon icon-left"></span>
                     详细总表
                 </a>
+                <a class="button button-link button-nav pull-right" href="Admin-smssent.jsp" target="_blank" data-transition='slide-out'>
+                    <span class="icon icon-left"></span>
+                    发送面试通知
+                </a>
                 <h1 class='title'>报名新生列表</h1>
             </header>
             <div class="content">

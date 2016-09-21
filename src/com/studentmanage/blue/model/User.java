@@ -4,6 +4,7 @@ package com.studentmanage.blue.model;
  * Created by heyixin on 2016/9/8.
  */
 public class User {
+
     private int id;
     private String name;
     private String email;

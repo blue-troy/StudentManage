@@ -9,6 +9,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="file-copy" path="C:/Program Files/Java/jdk1.8.0_66/lib/taobao-sdk-java-auto_1455552377940-20160607.jar" />
         </element>
       </element>
     </root>

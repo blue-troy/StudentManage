@@ -1,5 +1,6 @@
 package com.studentmanage.blue.service;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.studentmanage.blue.model.User;
 import com.studentmanage.blue.util.DB;
 
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by heyixin on 2016/9/8.
@@ -49,6 +51,27 @@ public class AdminService {
         DB.close(conn);
         System.out.println("关闭数据库");
         return users;
+    }
+    public void getgname(int user_id){
+        Connection conn = DB.createConn();
+        String sql = "select gname from relation where uid="+user_id+"";
+        System.out.println(sql);
+        PreparedStatement ps = DB.prepare(conn, sql);
+        try {
+            ResultSet e = ps.executeQuery();
+            String gname = null;
+            if (e.next()){
+                gname=e.getString("gname");
+            }
+            if (gname != null) {
+                ActionContext actionContext = ActionContext.getContext();
+                Map session = actionContext.getSession();
+                session.put("group_name",gname);
+            }
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
     }
 
 }
