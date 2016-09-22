@@ -107,7 +107,7 @@
                         </li>
                     </ul>
                 </div>
-                <p><a href="Group-creat.jsp" class="button button-big button-fill button-danger">返回 </a></p>
+                <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
                 <p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>" class="button button-big button-fill button-success">加入社团 </a></p>
             </div>
         </div>
