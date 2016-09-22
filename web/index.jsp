@@ -31,7 +31,9 @@
       <p><a href="register.jsp" class="button button-big button-fill button-danger external">注册 </a></p>
       <p><a href="login.jsp" class="button button-big button-fill button-success ">登录 </a></p>
     </div>
+      <h6><a href="http://159.203.237.145/" target="_blank" class="external" style="color:#0f88eb;position: absolute; bottom: 5px;right: 5px;">海风商创出品</a> </h6>
   </div>
+
 </div>
 
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
