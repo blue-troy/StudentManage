@@ -45,7 +45,9 @@
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title label">社团名称</div>
-                                    <input type="text" value="<%=name%>">
+                                    <div class="item-input">
+                                        <%=name%>
+                                    </div>
                                     </div>
                                 </div>
                         </li>
@@ -56,7 +58,9 @@
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title label">指导老师</div>
-                                    <input type="text" value="<%=teacher%>">
+                                    <div class="item-input">
+                                        <%=teacher%>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -67,7 +71,9 @@
                                 <div class="item-media"><i class="icon icon-form-calendar"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title label">成立时间</div>
-                                        <input type="date" value="<%=date%>">
+                                    <div class="item-input">
+                                        <%=date%>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -79,7 +85,9 @@
                                 <div class="item-media"><i class="icon icon-form-gender"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title label">所属机构</div>
-                                    <input type="text" value="<%=organization%>">
+                                    <div class="item-input">
+                                        <%=organization%>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -92,7 +100,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">社团简介</div>
                                     <div class="item-input">
-                                        <textarea><%=info%></textarea>
+                                        <textarea disabled><%=info%></textarea>
                                     </div>
                                 </div>
                             </div>
