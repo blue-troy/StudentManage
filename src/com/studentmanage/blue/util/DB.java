@@ -19,7 +19,7 @@ public class DB {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://162.243.147.147:3306/studentmanage?user=root&password=root&useUnicode=true&characterEncoding=UTF8&useSSL=false");
+            conn = DriverManager.getConnection("jdbc:mysql://162.243.130.231:3306/studentmanage?user=root&password=root&useUnicode=true&characterEncoding=UTF8&useSSL=false");
             System.out.println("成功加载mysql驱动");
             System.out.println();
         } catch (ClassNotFoundException var2) {
