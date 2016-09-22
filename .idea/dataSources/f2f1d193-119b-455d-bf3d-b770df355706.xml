@@ -10,7 +10,7 @@
     <schema id="5" name="sys"/>
     <table id="6" parent="1" name="user"/>
     <table id="7" parent="1" name="groups">
-      <comment>社团信息表</comment>
+      <comment>绀惧洟淇℃伅琛�</comment>
     </table>
     <table id="8" parent="1" name="relation"/>
     <column id="9" parent="6" name="id">
@@ -62,32 +62,32 @@
       <sequence-identity>1</sequence-identity>
     </column>
     <column id="20" parent="7" name="name">
-      <comment>社团名称</comment>
+      <comment>绀惧洟鍚嶇О</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="21" parent="7" name="teacher">
-      <comment>指导老师姓名</comment>
+      <comment>鎸囧鑰佸笀濮撳悕</comment>
       <mandatory>1</mandatory>
       <data-type>char(15)|0</data-type>
     </column>
     <column id="22" parent="7" name="date">
-      <comment>社团创建日期</comment>
+      <comment>绀惧洟鍒涘缓鏃ユ湡</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="23" parent="7" name="organization">
-      <comment>社团所属机构</comment>
+      <comment>绀惧洟鎵�灞炴満鏋�</comment>
       <mandatory>1</mandatory>
       <data-type>char(20)|0</data-type>
     </column>
     <column id="24" parent="7" name="info">
-      <comment>社团信息</comment>
+      <comment>绀惧洟淇℃伅</comment>
       <mandatory>1</mandatory>
       <data-type>text|0</data-type>
     </column>
     <column id="25" parent="7" name="creatid">
-      <comment>创建者id</comment>
+      <comment>鍒涘缓鑰卛d</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
