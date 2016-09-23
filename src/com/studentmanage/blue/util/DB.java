@@ -13,7 +13,6 @@ import java.sql.Statement;
 public class DB {
     public DB() {
     }
-
     public static Connection createConn() {
         Connection conn = null;
 

@@ -24,14 +24,14 @@
 <div class="page-group">
   <!-- 你的html代码 -->
   <div class="page">
-    <div class="content">
+    <div class="content-padded">
       <!-- 这里是页面内容区 -->
       <h2 align="center" style="color: #0f88eb">社团管理系统</h2>
       <h5 align="center">科技是第一生产力</h5>
-      <p><a href="register.jsp" class="button button-big button-fill button-danger external">注册 </a></p>
+      <p><a href="register.jsp" class="button button-big button-fill external">注册 </a></p>
       <p><a href="login.jsp" class="button button-big button-fill button-success ">登录 </a></p>
+      <p><a  href="http://159.203.237.145/"class="external" style="color:#aebdc9;font-size: 12px;text-align: center; display: block;">海风商创出品 · 何益鑫</a></p>
     </div>
-      <h6><a href="http://159.203.237.145/" target="_blank" class="external" style="color:#0f88eb;position: absolute; bottom: 5px;right: 5px;">海风商创出品</a> </h6>
   </div>
 
 </div>
