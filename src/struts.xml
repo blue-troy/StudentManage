@@ -5,13 +5,17 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <constant name="struts.devMode" value="true"></constant><!--热部署-->
+    <!--<constant name="struts.devMode" value="true"></constant>&lt;!&ndash;热部署&ndash;&gt;-->
     <package name="login" namespace="/user" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>
         </action>
         <action name="register" class="com.studentmanage.blue.action.LoginAction" method="register">
             <result>/index.jsp</result>
+            <result name="error">/sinin_error.jsp</result>
+        </action>
+        <action name="registerto" class="com.studentmanage.blue.action.LoginAction" method="registerto">
+            <result>/registerto.jsp</result>
             <result name="error">/sinin_error.jsp</result>
         </action>
         <action name="login" class="com.studentmanage.blue.action.LoginAction" method="login">

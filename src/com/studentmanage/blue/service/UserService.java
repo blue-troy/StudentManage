@@ -64,4 +64,25 @@ public class UserService {
         DB.close(conn);
         System.out.println("成功关闭数据库");
     }
+
+    public void registerto(User user) {
+        register(user);
+        System.out.println("开始 registerto ser");
+        Connection conn = DB.createConn();
+        String sql = "insert into relation values (?,?,?,?)";
+        PreparedStatement ps = DB.prepare(conn, sql);
+        try {
+            ps.setString(1,"999");
+            ps.setString(2,"2");
+            ps.setString(3,user.getName());
+            ps.setString(4,"海风商创");
+            System.out.println(sql);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        DB.close(ps);
+        DB.close(conn);
+        System.out.println("成功关闭数据库");
+    }
 }

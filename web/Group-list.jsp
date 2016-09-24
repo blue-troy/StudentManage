@@ -27,16 +27,22 @@
         <div class="content">
             <!-- 这里是页面内容区 -->
             <header class="bar bar-nav">
+                <a class="button button-link button-nav pull-left back" href="#" data-transition='slide-out'>
+                    <span class="icon icon-left"></span>
+                    返回
+                </a>
+                <h1 class="title">社团列表</h1>
+            </header>
+            <div class="bar bar-header-secondary">
                 <form action="group/Group-list" method="post" id="group_list" style="margin-bottom: 0px;">
                     <div class="searchbar row">
                         <div class="search-input col-85">
                             <input type="search" id='search' name="gname" placeholder='搜索社团'/>
                         </div>
-                        <a class="button button-fill button-primary col-15" href="javascript:document:group_list.submit();"><span class="icon icon-search"></span></a>
+                        <a class="button button-fill button-primary col-15" href="javascript:document:group_list.submit();" style="top: auto;"><span class="icon icon-search"></span></a>
                     </div>
                 </form>
-                <h1 class="title">社团列表</h1>
-            </header>
+            </div>
             <div class="content">
                 <div class="list-block media-list">
                     <ul>

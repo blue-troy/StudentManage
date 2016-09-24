@@ -34,6 +34,10 @@ public class LoginAction extends ActionSupport{
         this.userService.register(this.user);
         return "success";
     }
+    public String registerto() throws Exception {
+        this.userService.registerto(this.user);
+        return "success";
+    }
     public String loginout() throws Exception {
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();

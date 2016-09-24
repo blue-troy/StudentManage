@@ -24,7 +24,7 @@
 <div class="page-group">
   <!-- 你的html代码 -->
   <div class="page">
-    <div class="content">
+    <div class="content-padded">
       <!-- 这里是页面内容区 -->
       <h2 align="center" style="color: #0f88eb">社团管理系统</h2>
       <h5 align="center">用户名：<%=session.getAttribute("user_name") %></h5>

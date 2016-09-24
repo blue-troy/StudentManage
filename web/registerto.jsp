@@ -35,7 +35,7 @@
             </header>
 
                 <div class="content">
-                    <form action="/user/register" method="post" id="user_register">
+                    <form action="/user/registerto" method="post" id="user_register">
                         <div class="list-block">
                             <ul>
                                 <!-- Text inputs -->
@@ -95,17 +95,6 @@
                                 </li>
                                 <li>
                                     <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-password"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">密码</div>
-                                            <div class="item-input">
-                                                <input type="password" name="user.password" placeholder="Password" class="" required data-rule-required="true" data-msg-required="请输入密码">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
                                         <div class="item-media"><i class="icon icon-form-gender"></i></div>
                                         <div class="item-inner">
                                             <div class="item-title label">性别</div>
@@ -118,6 +107,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                <input type="hidden" name="user.password" placeholder="Password" class="" value="null" >
                                 <li class="align-top">
                                     <div class="item-content">
                                         <div class="item-media"><i class="icon icon-form-comment"></i></div>
