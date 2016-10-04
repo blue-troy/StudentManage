@@ -72,6 +72,9 @@ public class AdminService {
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+        DB.close(ps);
+        DB.close(conn);
+        System.out.println("关闭数据库");
     }
 
 }
