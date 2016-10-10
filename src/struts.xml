@@ -44,4 +44,13 @@
             <result name="error">/error.jsp</result>
         </action>
     </package>
+    <package name="json" namespace="/json" extends="json-default">
+        <action name="index" class="com.studentmanage.blue.action.JsonAction" method="execute">
+            <result name="index">/index.jsp</result>
+        </action>
+        <action name="email" class="com.studentmanage.blue.action.JsonAction" method="emailcheck">
+            <result name="success" type="json">
+            </result>
+        </action>
+    </package>
 </struts>
