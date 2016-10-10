@@ -12,20 +12,22 @@ import java.sql.SQLException;
  * Created by heyixin on 2016/9/8.
  */
 public class UserService {
-    public UserService(){}
+    public UserService() {
+    }
+
     public boolean sinup(User user) {
         System.out.println("开始 login ser");
         Connection conn = DB.createConn();
-        String telephone ="\""+ user.getTelephone()+"\"";
-        String password ="\""+ user.getPassword()+"\"";
-        String sql = "select * from user where (qq="+ telephone + " or email=" +  telephone+ " or telephone=" +telephone+") and password=" + password+ "";
+        String telephone = "\"" + user.getTelephone() + "\"";
+        String password = "\"" + user.getPassword() + "\"";
+        String sql = "select * from user where (qq=" + telephone + " or email=" + telephone + " or telephone=" + telephone + ") and password=" + password + "";
         System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
             ResultSet e = ps.executeQuery();
-            if (e.next()){
+            if (e.next()) {
                 user.setName(e.getString("name"));
-                System.out.println("用户名称："+ user.getName());
+                System.out.println("用户名称：" + user.getName());
                 user.setSex(e.getString("sex"));
                 user.setId(e.getInt("id"));
                 user.setInfo(e.getString("info"));
@@ -34,10 +36,12 @@ public class UserService {
                 DB.close(conn);
                 System.out.println("成功关闭数据库");
                 return true;
-            }return false;
+            }
+            return false;
         } catch (SQLException e1) {
             e1.printStackTrace();
-        }return false;
+        }
+        return false;
 
     }
 
@@ -47,14 +51,14 @@ public class UserService {
         String sql = "insert into user values (NULL,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
-            ps.setString(1,user.getName());
-            ps.setString(2,user.getEmail());
-            ps.setString(3,user.getQq());
-            ps.setString(4,user.getMajor());
-            ps.setString(5,user.getPassword());
-            ps.setString(6,user.getSex());
-            ps.setString(7,user.getInfo());
-            ps.setString(8,user.getTelephone());
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getQq());
+            ps.setString(4, user.getMajor());
+            ps.setString(5, user.getPassword());
+            ps.setString(6, user.getSex());
+            ps.setString(7, user.getInfo());
+            ps.setString(8, user.getTelephone());
             System.out.println(sql);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -72,10 +76,10 @@ public class UserService {
         String sql = "insert into relation values (?,?,?,?)";
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
-            ps.setString(1,"999");
-            ps.setString(2,"2");
-            ps.setString(3,user.getName());
-            ps.setString(4,"海风商创");
+            ps.setString(1, "999");
+            ps.setString(2, "2");
+            ps.setString(3, user.getName());
+            ps.setString(4, "海风商创");
             System.out.println(sql);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -85,4 +89,6 @@ public class UserService {
         DB.close(conn);
         System.out.println("成功关闭数据库");
     }
+
+//    public boolean checkemail( email){}
 }

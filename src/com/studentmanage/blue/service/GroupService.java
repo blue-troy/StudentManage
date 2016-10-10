@@ -14,19 +14,21 @@ import java.util.List;
  * Created by heyixin on 2016/9/8.
  */
 public class GroupService {
-    public GroupService(){}
-    public String creat(Group group){
+    public GroupService() {
+    }
+
+    public String creat(Group group) {
         System.out.println("开始 register ser");
         Connection conn = DB.createConn();
         String sql = "insert into groups values (NULL,?,?,?,?,?,?)";
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
-            ps.setString(1,group.getName());
-            ps.setString(2,group.getTeacher());
-            ps.setString(3,group.getDate());
-            ps.setString(4,group.getOrganization());
-            ps.setString(5,group.getInfo());
-            ps.setInt(6,group.getCreatid());
+            ps.setString(1, group.getName());
+            ps.setString(2, group.getTeacher());
+            ps.setString(3, group.getDate());
+            ps.setString(4, group.getOrganization());
+            ps.setString(5, group.getInfo());
+            ps.setInt(6, group.getCreatid());
             System.out.println(sql);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -38,25 +40,25 @@ public class GroupService {
         return "success";
     }
 
-    public List<Group> list(String gname) throws SQLException{
+    public List<Group> list(String gname) throws SQLException {
         System.out.println("开始 list sev");
         Connection conn = DB.createConn();
         String sql;
-        if (gname==null||gname.isEmpty()){
+        if (gname == null || gname.isEmpty()) {
             sql = "select * from groups";
-        }else {
-            StringBuffer tb =new StringBuffer();
+        } else {
+            StringBuffer tb = new StringBuffer();
             tb.append("%");
             for (int i = 0; i < gname.length(); i++) {
-                if (gname.charAt(i)!=' '){
+                if (gname.charAt(i) != ' ') {
                     tb.append(gname.charAt(i));
                     if (i < gname.length()) {
                         tb.append("%");
                     }
                 }
             }
-            gname="\""+ tb.toString()+"\"" ;
-            sql = "select * from groups where name like "+ gname + "";
+            gname = "\"" + tb.toString() + "\"";
+            sql = "select * from groups where name like " + gname + "";
         }
         System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
@@ -92,11 +94,11 @@ public class GroupService {
     public void join(int uid, String uname, int gid, String gname) {
         System.out.println("开始 join sev");
         Connection conn = DB.createConn();
-        String sql = "insert into relation values ("+uid+","+gid+",?,?)";
+        String sql = "insert into relation values (" + uid + "," + gid + ",?,?)";
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
-            ps.setString(1,uname);
-            ps.setString(2,gname);
+            ps.setString(1, uname);
+            ps.setString(2, gname);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

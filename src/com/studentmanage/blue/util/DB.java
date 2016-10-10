@@ -1,11 +1,6 @@
 package com.studentmanage.blue.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Created by 何益鑫 on 2016/6/21.
@@ -13,12 +8,13 @@ import java.sql.Statement;
 public class DB {
     public DB() {
     }
+
     public static Connection createConn() {
         Connection conn = null;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://162.243.130.231:3306/studentmanage?user=root&password=root&useUnicode=true&characterEncoding=UTF8&useSSL=false");
+            conn = DriverManager.getConnection("jdbc:mysql://138.68.45.67:3306/studentmanage?user=root&password=root&useUnicode=true&characterEncoding=UTF8&useSSL=false");
             System.out.println("成功加载mysql驱动");
             System.out.println();
         } catch (ClassNotFoundException var2) {

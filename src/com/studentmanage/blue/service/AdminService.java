@@ -23,7 +23,7 @@ public class AdminService {
         System.out.println("开始 list sev");
         Connection conn = DB.createConn();
 //        连接关系表和用户表查询
-        String sql = "select * from relation RIGHT JOIN user ON relation.uid=user.id where relation.gid IN (SELECT id FROM groups WHERE creatid="+creatid+")";
+        String sql = "select * from relation RIGHT JOIN user ON relation.uid=user.id where relation.gid IN (SELECT id FROM groups WHERE creatid=" + creatid + ")";
         System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
         ArrayList users = new ArrayList();
@@ -52,21 +52,22 @@ public class AdminService {
         System.out.println("关闭数据库");
         return users;
     }
-    public void getgname(int user_id){
+
+    public void getgname(int user_id) {
         Connection conn = DB.createConn();
-        String sql = "select gname from relation where uid="+user_id+"";
+        String sql = "select gname from relation where uid=" + user_id + "";
         System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
             ResultSet e = ps.executeQuery();
             String gname = null;
-            if (e.next()){
-                gname=e.getString("gname");
+            if (e.next()) {
+                gname = e.getString("gname");
             }
             if (gname != null) {
                 ActionContext actionContext = ActionContext.getContext();
                 Map session = actionContext.getSession();
-                session.put("group_name",gname);
+                session.put("group_name", gname);
             }
 
         } catch (SQLException e1) {

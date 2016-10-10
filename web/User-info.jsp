@@ -30,14 +30,14 @@
                 <h1 class='title'>新生信息</h1>
             </header>
             <%
-                String id =request.getParameter("id");
-                String name=request.getParameter("name");
-                String email=request.getParameter("email");
-                String qq=request.getParameter("qq");
-                String major=request.getParameter("major");
-                String sex=request.getParameter("sex");
-                String info=request.getParameter("info");
-                String telephone=request.getParameter("telephone");
+                String id = request.getParameter("id");
+                String name = request.getParameter("name");
+                String email = request.getParameter("email");
+                String qq = request.getParameter("qq");
+                String major = request.getParameter("major");
+                String sex = request.getParameter("sex");
+                String info = request.getParameter("info");
+                String telephone = request.getParameter("telephone");
             %>
             <div class="content">
                 <div class="list-block">
@@ -48,8 +48,8 @@
                                 <div class="item-inner">
                                     <div class="item-title label">姓名</div>
                                     <input type="text" value="<%=name%>">
-                                    </div>
                                 </div>
+                            </div>
                         </li>
 
                         <li>
@@ -78,7 +78,7 @@
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title label">电话</div>
-                                        <input type="text" value="<%=telephone%>">
+                                    <input type="text" value="<%=telephone%>">
                                 </div>
                             </div>
                         </li>
@@ -115,7 +115,8 @@
                     </ul>
                 </div>
                 <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>" class="button button-big button-fill button-success">同意加入社团 </a></p>
+                <p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>"
+                      class="button button-big button-fill button-success">同意加入社团 </a></p>
             </div>
         </div>
     </div>

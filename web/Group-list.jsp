@@ -39,7 +39,9 @@
                         <div class="search-input col-85">
                             <input type="search" id='search' name="gname" placeholder='搜索社团'/>
                         </div>
-                        <a class="button button-fill button-primary col-15" href="javascript:document:group_list.submit();" style="top: auto;"><span class="icon icon-search"></span></a>
+                        <a class="button button-fill button-primary col-15"
+                           href="javascript:document:group_list.submit();" style="top: auto;"><span
+                                class="icon icon-search"></span></a>
                     </div>
                 </form>
             </div>
@@ -48,13 +50,17 @@
                     <ul>
                         <s:iterator value="groups" var="g">
                             <li>
-                                <a href="Group-info.jsp?id=<s:property value="#g.id"/>&name=<s:property value="#g.name"/>&teacher=<s:property value="#g.teacher"/>&date=<s:property value="#g.date"/>&organization=<s:property value="#g.organization"/>&info=<s:property value="#g.info"/> "class="item-link item-content">
-                                    <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+                                <a href="Group-info.jsp?id=<s:property value="#g.id"/>&name=<s:property value="#g.name"/>&teacher=<s:property value="#g.teacher"/>&date=<s:property value="#g.date"/>&organization=<s:property value="#g.organization"/>&info=<s:property value="#g.info"/> "
+                                   class="item-link item-content">
+                                    <div class="item-media"><img
+                                            src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                            style='width: 4rem;'></div>
                                     <div class="item-inner">
                                         <div class="item-title-row">
-                                            <div class="item-title"> <s:property value="#g.name"/></div>
+                                            <div class="item-title"><s:property value="#g.name"/></div>
                                         </div>
-                                        <div class="item-subtitle">组织：<s:property value="#g.organization"/> 指导老师：<s:property value="#g.teacher"/></div>
+                                        <div class="item-subtitle">组织：<s:property value="#g.organization"/>
+                                            指导老师：<s:property value="#g.teacher"/></div>
                                         <div class="item-text"><s:property value="#g.info"/>...</div>
                                     </div>
                                 </a>
@@ -62,10 +68,10 @@
                         </s:iterator>
                     </ul>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-    </div>
 
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>

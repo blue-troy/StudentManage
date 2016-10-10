@@ -23,6 +23,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getSex() {
         return sex;
     }
@@ -30,6 +31,7 @@ public class User {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     public String getTelephone() {
         return telephone;
     }

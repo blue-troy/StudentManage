@@ -34,101 +34,109 @@
                 <h1 class='title'>注册</h1>
             </header>
 
-                <div class="content">
-                    <form action="/user/registerto" method="post" id="user_register">
-                        <div class="list-block">
-                            <ul>
-                                <!-- Text inputs -->
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">姓名</div>
-                                            <div class="item-input">
-                                                <input type="text"  name="user.name" placeholder="Your name" required data-rule-required="true" data-msg-required="请输入姓名">
-                                            </div>
+            <div class="content">
+                <form action="/user/registerto" method="post" id="user_register">
+                    <div class="list-block">
+                        <ul>
+                            <!-- Text inputs -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">姓名</div>
+                                        <div class="item-input">
+                                            <input type="text" name="user.name" placeholder="Your name" required
+                                                   data-rule-required="true" data-msg-required="请输入姓名">
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-telephone"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">手机</div>
-                                            <div class="item-input">
-                                                <input type="email"  name="user.telephone" placeholder="" required data-rule-required="true" data-msg-required="请输入手机号码">
-                                            </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-telephone"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">手机</div>
+                                        <div class="item-input">
+                                            <input type="email" name="user.telephone" placeholder="" required
+                                                   data-rule-required="true" data-msg-required="请输入手机号码">
                                         </div>
                                     </div>
-                                </li>
+                                </div>
+                            </li>
 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-email"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">邮箱</div>
-                                            <div class="item-input">
-                                                <input type="email" name="user.email" placeholder="E-mail" required data-rule-required="true" data-msg-required="请输入邮箱">
-                                            </div>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-email"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">邮箱</div>
+                                        <div class="item-input">
+                                            <input type="email" name="user.email" placeholder="E-mail" required
+                                                   data-rule-required="true" data-msg-required="请输入邮箱">
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-QQ"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">QQ</div>
-                                            <div class="item-input">
-                                                <input type="email" name="user.qq" placeholder="QQ" required data-rule-required="true" data-msg-required="请输入QQ">
-                                            </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-QQ"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">QQ</div>
+                                        <div class="item-input">
+                                            <input type="email" name="user.qq" placeholder="QQ" required
+                                                   data-rule-required="true" data-msg-required="请输入QQ">
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">学院专业</div>
-                                            <input name="user.Major" type="text" id='city-picker' required data-rule-required="true" data-msg-required="请选择专业"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">学院专业</div>
+                                        <input name="user.Major" type="text" id='city-picker' required
+                                               data-rule-required="true" data-msg-required="请选择专业"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">性别</div>
+                                        <div class="item-input">
+                                            <select name="user.sex">
+                                                <option value="男">男</option>
+                                                <option value="女">女</option>
+                                            </select>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">性别</div>
-                                            <div class="item-input">
-                                                <select name="user.sex">
-                                                    <option value="男">男</option>
-                                                    <option value="女">女</option>
-                                                </select>
-                                            </div>
+                                </div>
+                            </li>
+                            <input type="hidden" name="user.password" placeholder="Password" class="" value="null">
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">自我介绍</div>
+                                        <div class="item-input" required data-rule-required="true"
+                                             data-msg-required="请输入自我介绍">
+                                            <textarea name="user.info"></textarea>
                                         </div>
                                     </div>
-                                </li>
-                                <input type="hidden" name="user.password" placeholder="Password" class="" value="null" >
-                                <li class="align-top">
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-comment"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">自我介绍</div>
-                                            <div class="item-input" required data-rule-required="true" data-msg-required="请输入自我介绍">
-                                                <textarea name="user.info"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="content-block">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
                         <div class="row">
-                            <div class="col-50"><a href="#" class="button button-big button-fill button-danger back">取消</a></div>
+                            <div class="col-50"><a href="#"
+                                                   class="button button-big button-fill button-danger back">取消</a></div>
                             <%--<div class="col-50"><a href="#" class="button button-big button-fill button-success disabled" id="register" >提交</a></div>--%>
-                            <div class="col-50"><a href="javascript:document:user_register.submit();" class="button button-big button-fill button-success "  >提交</a></div>
+                            <div class="col-50"><a href="javascript:document:user_register.submit();"
+                                                   class="button button-big button-fill button-success ">提交</a></div>
                         </div>
-                </div>
-                    </form>
+                    </div>
+                </form>
             </div>
 
         </div>

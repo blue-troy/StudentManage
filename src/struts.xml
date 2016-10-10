@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <!--<constant name="struts.devMode" value="true"></constant>&lt;!&ndash;热部署&ndash;&gt;-->
+    <constant name="struts.devMode" value="true"></constant><!--热部署-->
     <package name="login" namespace="/user" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>

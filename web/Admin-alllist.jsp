@@ -26,34 +26,36 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">新生信息详细表</div>
-        <a href="#" onclick="$('.table').tableExport({type:'excel', excelstyles:['border-bottom', 'border-top', 'border-left', 'border-right']});">Export to Excel</a>
-            <table class="table"/>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>姓名</th>
-                        <th>性别</th>
-                        <th>学院专业</th>
-                        <th>电话</th>
-                        <th>qq</th>
-                        <th>邮箱</th>
-                        <th>个人简介</th>
-                    </tr>
-                </thead>
-                <s:iterator value="users" var="u" >
-                    <tr>
-                        <td scope="row">1</td>
-                        <td><s:property value="#u.name"/></td>
-                        <td><s:property value="#u.sex"/></td>
-                        <td><s:property value="#u.major"/></td>
-                        <td><s:property value="#u.telephone"/></td>
-                        <td><s:property value="#u.qq"/></td>
-                        <td><s:property value="#u.email"/></td>
-                        <td><s:property value="#u.info"/></td>
-                    </tr>
-                </s:iterator>
+        <a href="#"
+           onclick="$('.table').tableExport({type:'excel', excelstyles:['border-bottom', 'border-top', 'border-left', 'border-right']});">Export
+            to Excel</a>
+        <table class="table"/>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>学院专业</th>
+            <th>电话</th>
+            <th>qq</th>
+            <th>邮箱</th>
+            <th>个人简介</th>
+        </tr>
+        </thead>
+        <s:iterator value="users" var="u">
+            <tr>
+                <td scope="row">1</td>
+                <td><s:property value="#u.name"/></td>
+                <td><s:property value="#u.sex"/></td>
+                <td><s:property value="#u.major"/></td>
+                <td><s:property value="#u.telephone"/></td>
+                <td><s:property value="#u.qq"/></td>
+                <td><s:property value="#u.email"/></td>
+                <td><s:property value="#u.info"/></td>
+            </tr>
+        </s:iterator>
 
-            </table>
+        </table>
     </div>
 </div>
 

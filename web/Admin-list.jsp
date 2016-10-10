@@ -32,11 +32,13 @@
                     <span class="icon icon-left"></span>
                     返回
                 </a>
-                <a class="button button-link button-nav pull-right" href="admin/Admin-alllist" target="_blank" data-transition='slide-out'>
+                <a class="button button-link button-nav pull-right" href="admin/Admin-alllist" target="_blank"
+                   data-transition='slide-out'>
                     <span class="icon icon-left"></span>
                     详细总表
                 </a>
-                <a class="button button-link button-nav pull-right" href="Admin-smssent.jsp" target="_blank" data-transition='slide-out'>
+                <a class="button button-link button-nav pull-right" href="Admin-smssent.jsp" target="_blank"
+                   data-transition='slide-out'>
                     <span class="icon icon-left"></span>
                     发送面试通知
                 </a>
@@ -46,22 +48,23 @@
                 <div class="list-block contacts-block">
                     <div class="list-group">
                         <ul>
-                        <s:iterator value="users" var="u">
-                            <li>
-                                <a href="User-info.jsp?id=<s:property value="#u.id"/>&name=<s:property value="#u.name"/>&email=<s:property value="#u.email"/>&qq=<s:property value="#u.qq"/>&major=<s:property value="#u.major"/>&info=<s:property value="#u.info"/>&sex=<s:property value="#u.sex"/>&telephone=<s:property value="#u.telephone"/> "class="item-link item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title"><s:property value="#u.name"/></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </s:iterator>
-                    </ul>
+                            <s:iterator value="users" var="u">
+                                <li>
+                                    <a href="User-info.jsp?id=<s:property value="#u.id"/>&name=<s:property value="#u.name"/>&email=<s:property value="#u.email"/>&qq=<s:property value="#u.qq"/>&major=<s:property value="#u.major"/>&info=<s:property value="#u.info"/>&sex=<s:property value="#u.sex"/>&telephone=<s:property value="#u.telephone"/> "
+                                       class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title"><s:property value="#u.name"/></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </s:iterator>
+                        </ul>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-    </div>
 
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>

@@ -34,43 +34,46 @@
                 <h1 class='title'>面试通知内容</h1>
             </header>
 
-                <div class="content">
-                    <form action="admin/Admin-smssent" method="post" id="smssent">
-                        <div class="list-block">
-                            <ul>
-                                <!-- Text inputs -->
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">面试时间</div>
-                                            <div class="item-input">
-                                                <input type="text"  name="sms.time" placeholder="面试时间">
-                                            </div>
+            <div class="content">
+                <form action="admin/Admin-smssent" method="post" id="smssent">
+                    <div class="list-block">
+                        <ul>
+                            <!-- Text inputs -->
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">面试时间</div>
+                                        <div class="item-input">
+                                            <input type="text" name="sms.time" placeholder="面试时间">
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media"><i class="icon icon-form-telephone"></i></div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">面试地点</div>
-                                            <div class="item-input">
-                                                <input type="text"  name="sms.place" placeholder="面试地点">
-                                                <input type="hidden"  name="sms.gname" value="<%=session.getAttribute("group_name") %>">
-                                            </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-telephone"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">面试地点</div>
+                                        <div class="item-input">
+                                            <input type="text" name="sms.place" placeholder="面试地点">
+                                            <input type="hidden" name="sms.gname"
+                                                   value="<%=session.getAttribute("group_name") %>">
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <div class="row">
+                            <div class="col-50"><a href="#"
+                                                   class="button button-big button-fill button-danger back">取消</a></div>
+                            <div class="col-50"><a href="javascript:document:smssent.submit();"
+                                                   class="button button-big button-fill button-success">开始短信通知</a></div>
                         </div>
-                        <div class="content-block">
-                            <div class="row">
-                                <div class="col-50"><a href="#" class="button button-big button-fill button-danger back">取消</a></div>
-                                <div class="col-50"><a href="javascript:document:smssent.submit();" class="button button-big button-fill button-success">开始短信通知</a></div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+                </form>
             </div>
 
         </div>

@@ -35,90 +35,92 @@
                     <h1 class='title'>社团信息</h1>
                 </header>
 
-                    <div class="content">
-                        <form action="group/Group-creat" method="post" id="group_creat">
-                    <div class="list-block">
-                        <ul>
-                            <li>
-                                <div class="item-content">
-                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                    <div class="item-inner">
-                                        <div class="item-title label">社团名称</div>
-                                        <div class="item-input">
-                                            <input type="text" name="group.name" placeholder="Your groupname">
+                <div class="content">
+                    <form action="group/Group-creat" method="post" id="group_creat">
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">社团名称</div>
+                                            <div class="item-input">
+                                                <input type="text" name="group.name" placeholder="Your groupname">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
 
 
-                            <li>
-                                <div class="item-content">
-                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                    <div class="item-inner">
-                                        <div class="item-title label">指导老师</div>
-                                        <div class="item-input">
-                                            <input type="text" name="group.teacher" placeholder="Your Teacher">
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">指导老师</div>
+                                            <div class="item-input">
+                                                <input type="text" name="group.teacher" placeholder="Your Teacher">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
 
 
-                            <li>
-                                <div class="item-content">
-                                    <div class="item-media"><i class="icon icon-form-calendar"></i></div>
-                                    <div class="item-inner">
-                                        <div class="item-title label">成立时间</div>
-                                        <div class="item-input">
-                                            <input type="date" name="group.date" placeholder="Birth day" value="2014-04-30">
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">成立时间</div>
+                                            <div class="item-input">
+                                                <input type="date" name="group.date" placeholder="Birth day"
+                                                       value="2014-04-30">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
 
 
-
-                            <li>
-                                <div class="item-content">
-                                    <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                                    <div class="item-inner">
-                                        <div class="item-title label">所属机构</div>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">所属机构</div>
                                             <input type="text" name="group.organization" id='OrganizationPicker'/>
-                                    </div>
-                                </div>
-                            </li>
-
-
-
-                            <li class="align-top">
-                                <div class="item-content">
-                                    <div class="item-media"><i class="icon icon-form-comment"></i></div>
-                                    <div class="item-inner">
-                                        <div class="item-title label">社团简介</div>
-                                        <div class="item-input">
-                                            <textarea name="group.info"></textarea>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="content-block">
-                        <div class="row">
-                            <div class="col-50"><a href="#" class="button button-big button-fill button-danger back">取消</a></div>
-                            <div class="col-50"><a href="javascript:document:group_creat.submit();" class="button button-big button-fill button-success">提交</a></div>
+                                </li>
+
+
+                                <li class="align-top">
+                                    <div class="item-content">
+                                        <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">社团简介</div>
+                                            <div class="item-input">
+                                                <textarea name="group.info"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                        </form>
+                        <div class="content-block">
+                            <div class="row">
+                                <div class="col-50"><a href="#"
+                                                       class="button button-big button-fill button-danger back">取消</a>
+                                </div>
+                                <div class="col-50"><a href="javascript:document:group_creat.submit();"
+                                                       class="button button-big button-fill button-success">提交</a></div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
             </div>
         </div>
-</div>
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    </div>
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
     <script>
         $("#OrganizationPicker").picker({
             toolbarTemplate: '<header class="bar bar-nav">\
@@ -128,7 +130,7 @@
             cols: [
                 {
                     textAlign: 'center',
-                    values: ['学生社团联合会（社联）', '交通运输管理学院', '信息科学技术学院', '航海学院', '交通运输装备与海洋工程学院', '法学院', '公共管理与人文学院', '马克思主义学院','物理系']
+                    values: ['学生社团联合会（社联）', '交通运输管理学院', '信息科学技术学院', '航海学院', '交通运输装备与海洋工程学院', '法学院', '公共管理与人文学院', '马克思主义学院', '物理系']
                 },
             ]
         });

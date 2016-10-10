@@ -12,6 +12,11 @@ public class Sms {
         this.uname = uname;
     }*/
 
+    /*private String uname;*/
+    private String gname;
+    private String time;
+    private String place;
+
     public String getGname() {
         return gname;
     }
@@ -35,10 +40,5 @@ public class Sms {
     public void setPlace(String place) {
         this.place = place;
     }
-
-    /*private String uname;*/
-    private String gname;
-    private String time;
-    private String place;
 
 }

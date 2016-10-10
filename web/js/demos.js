@@ -5,10 +5,10 @@ $(function () {
     'use strict';
 
     //下拉刷新页面
-    $(document).on("pageInit", "#page-ptr", function(e, id, page) {
-        var $content = $(page).find(".content").on('refresh', function(e) {
+    $(document).on("pageInit", "#page-ptr", function (e, id, page) {
+        var $content = $(page).find(".content").on('refresh', function (e) {
             // 模拟2s的加载过程
-            setTimeout(function() {
+            setTimeout(function () {
                 var cardHTML = '<div class="card">' +
                     '<div class="card-header">标题</div>' +
                     '<div class="card-content">' +
@@ -26,13 +26,14 @@ $(function () {
     });
 
     //无限滚动
-    $(document).on("pageInit", "#page-infinite-scroll-bottom", function(e, id, page) {
+    $(document).on("pageInit", "#page-infinite-scroll-bottom", function (e, id, page) {
         var loading = false;
         // 每次加载添加多少条目
         var itemsPerLoad = 20;
         // 最多可加载的条目
         var maxItems = 100;
         var lastIndex = $('.list-container li').length;
+
         function addItems(number, lastIndex) {
             // 生成新条目的HTML
             var html = '';
@@ -42,13 +43,14 @@ $(function () {
             // 添加新条目
             $('.infinite-scroll .list-container').append(html);
         }
-        $(page).on('infinite', function() {
+
+        $(page).on('infinite', function () {
             // 如果正在加载，则退出
             if (loading) return;
             // 设置flag
             loading = true;
             // 模拟1s的加载过程
-            setTimeout(function() {
+            setTimeout(function () {
                 // 重置加载flag
                 loading = false;
                 if (lastIndex >= maxItems) {
@@ -58,7 +60,7 @@ $(function () {
                     $('.infinite-scroll-preloader').remove();
                     return;
                 }
-                addItems(itemsPerLoad,lastIndex);
+                addItems(itemsPerLoad, lastIndex);
                 // 更新最后加载的序号
                 lastIndex = $('.list-container li').length;
                 $.refreshScroller();
@@ -67,19 +69,20 @@ $(function () {
     });
 
     //顶部无限滚动
-    $(document).on("pageInit", "#page-infinite-scroll-top", function(e, id, page) {
+    $(document).on("pageInit", "#page-infinite-scroll-top", function (e, id, page) {
         function addItems(number, lastIndex) {
             // 生成新条目的HTML
             var html = '';
-            for (var i = lastIndex+ number; i > lastIndex ; i--) {
-                html += '<li class="item-content"><div class="item-inner"><div class="item-title">条目'+i+'</div></div></li>';
+            for (var i = lastIndex + number; i > lastIndex; i--) {
+                html += '<li class="item-content"><div class="item-inner"><div class="item-title">条目' + i + '</div></div></li>';
             }
             // 添加新条目
             $('.infinite-scroll .list-container').prepend(html);
 
         }
+
         var timer = false;
-        $(page).on('infinite', function() {
+        $(page).on('infinite', function () {
             var lastIndex = $('.list-block li').length;
             var lastLi = $(".list-container li")[0];
             var scroller = $('.infinite-scroll-top');
@@ -90,9 +93,9 @@ $(function () {
             }
 
             // 模拟1s的加载过程
-            timer = setTimeout(function() {
+            timer = setTimeout(function () {
 
-                addItems(20,lastIndex);
+                addItems(20, lastIndex);
 
                 $.refreshScroller();
                 //  lastLi.scrollIntoView({
@@ -108,13 +111,14 @@ $(function () {
     //test demo js
 
     //多个标签页下的无限滚动
-    $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function(e, id, page) {
+    $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function (e, id, page) {
         var loading = false;
         // 每次加载添加多少条目
         var itemsPerLoad = 20;
         // 最多可加载的条目
         var maxItems = 100;
         var lastIndex = $('.list-container li')[0].length;
+
         function addItems(number, lastIndex) {
             // 生成新条目的HTML
             var html = '';
@@ -124,21 +128,22 @@ $(function () {
             // 添加新条目
             $('.infinite-scroll.active .list-container').append(html);
         }
-        $(page).on('infinite', function() {
+
+        $(page).on('infinite', function () {
             // 如果正在加载，则退出
             if (loading) return;
             // 设置flag
             loading = true;
             var tabIndex = 0;
-            if($(this).find('.infinite-scroll.active').attr('id') == "tab2"){
+            if ($(this).find('.infinite-scroll.active').attr('id') == "tab2") {
                 tabIndex = 0;
             }
-            if($(this).find('.infinite-scroll.active').attr('id') == "tab3"){
+            if ($(this).find('.infinite-scroll.active').attr('id') == "tab3") {
                 tabIndex = 1;
             }
             lastIndex = $('.list-container').eq(tabIndex).find('li').length;
             // 模拟1s的加载过程
-            setTimeout(function() {
+            setTimeout(function () {
                 // 重置加载flag
                 loading = false;
                 if (lastIndex >= maxItems) {
@@ -148,42 +153,42 @@ $(function () {
                     $('.infinite-scroll-preloader').eq(tabIndex).hide();
                     return;
                 }
-                addItems(itemsPerLoad,lastIndex);
+                addItems(itemsPerLoad, lastIndex);
                 // 更新最后加载的序号
-                lastIndex =  $('.list-container').eq(tabIndex).find('li').length;
+                lastIndex = $('.list-container').eq(tabIndex).find('li').length;
                 $.refreshScroller();
             }, 1000);
         });
     });
 
     //图片浏览器
-    $(document).on("pageInit", "#page-photo-browser", function(e, id, page) {
+    $(document).on("pageInit", "#page-photo-browser", function (e, id, page) {
         var myPhotoBrowserStandalone = $.photoBrowser({
-            photos : [
+            photos: [
                 '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
                 '//img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg',
                 '//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg',
             ]
         });
         //点击时打开图片浏览器
-        $(page).on('click','.pb-standalone',function () {
+        $(page).on('click', '.pb-standalone', function () {
             myPhotoBrowserStandalone.open();
         });
         /*=== Popup ===*/
         var myPhotoBrowserPopup = $.photoBrowser({
-            photos : [
+            photos: [
                 '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
                 '//img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg',
                 '//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg',
             ],
             type: 'popup'
         });
-        $(page).on('click','.pb-popup',function () {
+        $(page).on('click', '.pb-popup', function () {
             myPhotoBrowserPopup.open();
         });
         /*=== 有标题 ===*/
         var myPhotoBrowserCaptions = $.photoBrowser({
-            photos : [
+            photos: [
                 {
                     url: '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
                     caption: 'Caption 1 Text'
@@ -200,34 +205,34 @@ $(function () {
             theme: 'dark',
             type: 'standalone'
         });
-        $(page).on('click','.pb-standalone-captions',function () {
+        $(page).on('click', '.pb-standalone-captions', function () {
             myPhotoBrowserCaptions.open();
         });
     });
 
 
     //对话框
-    $(document).on("pageInit", "#page-modal", function(e, id, page) {
+    $(document).on("pageInit", "#page-modal", function (e, id, page) {
         var $content = $(page).find('.content');
-        $content.on('click','.alert-text',function () {
+        $content.on('click', '.alert-text', function () {
             $.alert('这是一段提示消息');
         });
 
-        $content.on('click','.alert-text-title', function () {
+        $content.on('click', '.alert-text-title', function () {
             $.alert('这是一段提示消息', '这是自定义的标题!');
         });
 
-        $content.on('click', '.alert-text-title-callback',function () {
+        $content.on('click', '.alert-text-title-callback', function () {
             $.alert('这是自定义的文案', '这是自定义的标题!', function () {
                 $.alert('你点击了确定按钮!')
             });
         });
-        $content.on('click','.confirm-ok', function () {
+        $content.on('click', '.confirm-ok', function () {
             $.confirm('你确定吗?', function () {
                 $.alert('你点击了确定按钮!');
             });
         });
-        $content.on('click','.prompt-ok', function () {
+        $content.on('click', '.prompt-ok', function () {
             $.prompt('你叫什么问题?', function (value) {
                 $.alert('你输入的名字是"' + value + '"');
             });
@@ -235,8 +240,8 @@ $(function () {
     });
 
     //操作表
-    $(document).on("pageInit", "#page-action", function(e, id, page) {
-        $(page).on('click','.create-actions', function () {
+    $(document).on("pageInit", "#page-action", function (e, id, page) {
+        $(page).on('click', '.create-actions', function () {
             var buttons1 = [
                 {
                     text: '请选择',
@@ -246,13 +251,13 @@ $(function () {
                     text: '卖出',
                     bold: true,
                     color: 'danger',
-                    onClick: function() {
+                    onClick: function () {
                         $.alert("你选择了“卖出“");
                     }
                 },
                 {
                     text: '买入',
-                    onClick: function() {
+                    onClick: function () {
                         $.alert("你选择了“买入“");
                     }
                 }
@@ -269,14 +274,14 @@ $(function () {
     });
 
     //加载提示符
-    $(document).on("pageInit", "#page-preloader", function(e, id, page) {
-        $(page).on('click','.open-preloader-title', function () {
+    $(document).on("pageInit", "#page-preloader", function (e, id, page) {
+        $(page).on('click', '.open-preloader-title', function () {
             $.showPreloader('加载中...')
             setTimeout(function () {
                 $.hidePreloader();
             }, 2000);
         });
-        $(page).on('click','.open-indicator', function () {
+        $(page).on('click', '.open-indicator', function () {
             $.showIndicator();
             setTimeout(function () {
                 $.hideIndicator();
@@ -286,7 +291,7 @@ $(function () {
 
 
     //选择颜色主题
-    $(document).on("click", ".select-color", function(e) {
+    $(document).on("click", ".select-color", function (e) {
         var b = $(e.target);
         document.body.className = "theme-" + (b.data("color") || "");
         b.parent().find(".active").removeClass("active");
@@ -294,7 +299,7 @@ $(function () {
     });
 
     //picker
-    $(document).on("pageInit", "#page-picker", function(e, id, page) {
+    $(document).on("pageInit", "#page-picker", function (e, id, page) {
         $("#picker").picker({
             toolbarTemplate: '<header class="bar bar-nav">\
         <button class="button button-link pull-left">\
@@ -334,7 +339,7 @@ $(function () {
             ]
         });
     });
-    $(document).on("pageInit", "#page-datetime-picker", function(e) {
+    $(document).on("pageInit", "#page-datetime-picker", function (e) {
         $("#datetime-picker").datetimePicker({
             toolbarTemplate: '<header class="bar bar-nav">\
       <button class="button button-link pull-right close-picker">确定</button>\
@@ -343,7 +348,7 @@ $(function () {
         });
     });
 
-    $(document).on("pageInit", "#page-city-picker", function(e) {
+    $(document).on("pageInit", "#page-city-picker", function (e) {
         $("#city-picker").cityPicker({
             value: ['天津', '河东区']
             //value: ['四川', '内江', '东兴区']

@@ -15,12 +15,12 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="MySQL - @162.243.147.147" uuid="3dae3fac-611b-4422-af7e-a9167905a1d5">
+    <data-source source="LOCAL" name="MySQL - @162.243.130.231" uuid="813730f4-a303-430c-94d9-05251a87992b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://162.243.147.147:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://162.243.130.231:3306</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
@@ -30,12 +30,12 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="MySQL - @162.243.130.231" uuid="813730f4-a303-430c-94d9-05251a87992b">
+    <data-source source="LOCAL" name="MySQL - @138.68.45.67" uuid="125df6a8-b0a6-4b6f-91d9-8858ea311f47">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://162.243.130.231:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://138.68.45.67:3306</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

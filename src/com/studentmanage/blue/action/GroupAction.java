@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by heyixin on 2016/9/8.
  */
-public class GroupAction extends ActionSupport{
+public class GroupAction extends ActionSupport {
     private Group group;
     private GroupService groupService = new GroupService();
     private List<Group> groups;
@@ -21,26 +21,29 @@ public class GroupAction extends ActionSupport{
     private int uid;
     private String uname;
 
-    public GroupAction(){}
+    public GroupAction() {
+    }
 
-    public String creat()throws Exception{
+    public String creat() throws Exception {
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();
         this.group.setCreatid(((Integer) session.get("user_id")).intValue());
         this.groupService.creat(this.group);
         return "groupindex";
     }
-    public  String list() throws SQLException {
+
+    public String list() throws SQLException {
         this.groups = this.groupService.list(this.gname);
         return "success";
     }
-    public String join()throws Exception{
+
+    public String join() throws Exception {
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();
         this.setUid(((Integer) session.get("user_id")).intValue());
         this.setUname((String) session.get("user_name"));
 
-        this.groupService.join(this.getUid(),this.getUname(),this.getGid(),this.getGname());
+        this.groupService.join(this.getUid(), this.getUname(), this.getGid(), this.getGname());
         return "groupindex";
     }
 
@@ -59,6 +62,7 @@ public class GroupAction extends ActionSupport{
     public void setGroupService(GroupService groupService) {
         this.groupService = groupService;
     }
+
     public List<Group> getGroups() {
         return groups;
     }
@@ -66,6 +70,7 @@ public class GroupAction extends ActionSupport{
     public void setGroups(List<Group> groups) {
         this.groups = groups;
     }
+
     public int getGid() {
         return gid;
     }
@@ -81,6 +86,7 @@ public class GroupAction extends ActionSupport{
     public void setGname(String gname) {
         this.gname = gname;
     }
+
     public int getUid() {
         return uid;
     }

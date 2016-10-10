@@ -34,12 +34,12 @@
                 <h1 class='title'>社团信息</h1>
             </header>
             <%
-                String id =request.getParameter("id");
-                String name=request.getParameter("name");
-                String date=request.getParameter("date");
-                String teacher=request.getParameter("teacher");
-                String organization=request.getParameter("organization");
-                String info=request.getParameter("info");
+                String id = request.getParameter("id");
+                String name = request.getParameter("name");
+                String date = request.getParameter("date");
+                String teacher = request.getParameter("teacher");
+                String organization = request.getParameter("organization");
+                String info = request.getParameter("info");
             %>
             <div class="content">
                 <div class="list-block">
@@ -52,8 +52,8 @@
                                     <div class="item-input">
                                         <%=name%>
                                     </div>
-                                    </div>
                                 </div>
+                            </div>
                         </li>
 
 
@@ -81,7 +81,6 @@
                                 </div>
                             </div>
                         </li>
-
 
 
                         <li>
@@ -112,7 +111,8 @@
                     </ul>
                 </div>
                 <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>" class="button button-big button-fill button-success">加入社团 </a></p>
+                <p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>"
+                      class="button button-big button-fill button-success">加入社团 </a></p>
             </div>
         </div>
     </div>
