@@ -15,21 +15,11 @@
           <fileset id="s2fileset" name="Default File Set " removed="false">
             <file>file://$MODULE_DIR$/src/struts.xml</file>
             <file>jar://$MODULE_DIR$/lib/struts2-core.jar!/struts-default.xml</file>
-            <file>jar://$MODULE_DIR$/lib/struts2-json-plugin-2.5.2.jar!/struts-plugin.xml</file>
+            <file>jar://$MODULE_DIR$/../test/lib/struts2-json-plugin-2.3.30.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
-    </facet>
-    <facet type="web" name="Web2">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/.idea/artifacts" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/.idea" relative="/WEB-INF" />
-        </webroots>
-      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -56,10 +46,19 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/struts2-json-plugin-2.5.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../test/lib/json-lib-2.3-jdk15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../test/lib/struts2-json-plugin-2.3.30.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
