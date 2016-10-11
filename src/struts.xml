@@ -6,21 +6,26 @@
 
 <struts>
     <constant name="struts.devMode" value="true"></constant><!--热部署-->
-    <package name="login" namespace="/user" extends="struts-default">
-        <action name="index">
-            <result>/index.jsp</result>
-        </action>
+    <package name="login" namespace="/user" extends="json-default">
+        <global-results>
+            <result >/index.jsp</result>
+            <result name="loginerror">/login.jsp</result>
+            <result name="registererror">/register.jsp</result>
+        </global-results>
         <action name="register" class="com.studentmanage.blue.action.LoginAction" method="register">
             <result>/index.jsp</result>
-            <result name="error">/sinin_error.jsp</result>
         </action>
+        <action name="checkuser" class="com.studentmanage.blue.action.LoginAction" method="checkuser">
+            <result type="json">
+                <param name="includeProperties">status</param>
+            </result>
+        </action>
+        <!--加入固定社团人员的注册方式，注册后无密码-->
         <action name="registerto" class="com.studentmanage.blue.action.LoginAction" method="registerto">
             <result>/registerto.jsp</result>
-            <result name="error">/sinin_error.jsp</result>
         </action>
         <action name="login" class="com.studentmanage.blue.action.LoginAction" method="login">
             <result>/groupindex.jsp</result>
-            <result name="error">/sinup_error.jsp</result>
         </action>
     </package>
     <package name="group" namespace="/group" extends="struts-default">

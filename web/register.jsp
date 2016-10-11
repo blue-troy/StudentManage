@@ -18,19 +18,29 @@
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
-    <%--<script>--%>
-    <%--function checkemail(email) {--%>
-    <%--$.ajax({--%>
+    <script>
+        function check() {
+            var params = {
+                telephone :$("#telephone").val(),
+            };
+            $.ajax({
+                type:'POST',
+                url:'/user/checkuser',
+                data:params,
+                dataType:'json',
+                success:function (result) {
+                    if(result.status.match(0)){
+//                        alert("账号已经被注册");
+                        $("#telephone").attr("placeholder","账号已经被注册");
+                    }else {
+                        alert("账号没被注册");
+                    }
+                }
+            });
 
-    <%--url:'/user/email',--%>
-    <%--type:'post',--%>
-    <%--data: "email=" + email,--%>
-    <%--success : function(result) {--%>
-    <%--alert(result);--%>
-    <%--}--%>
-    <%--});--%>
-    <%--}--%>
-    <%--</script>--%>
+        }
+    </script>
+
 </head>
 <body>
 <div class="page-group">
@@ -70,8 +80,9 @@
                                     <div class="item-inner">
                                         <div class="item-title label">手机</div>
                                         <div class="item-input">
-                                            <input type="email" name="user.telephone" placeholder="" required
-                                                   data-rule-required="true" data-msg-required="请输入手机号码">
+                                            <input type="email" id="telephone" name="user.telephone"  required
+                                                   data-rule-required="true" placeholder="telephone">
+                                            <%--<input type="button" onclick="check();">--%>
                                         </div>
                                     </div>
                                 </div>

@@ -18,9 +18,7 @@ public class UserService {
     public boolean sinup(User user) {
         System.out.println("开始 login ser");
         Connection conn = DB.createConn();
-        String telephone = "\"" + user.getTelephone() + "\"";
-        String password = "\"" + user.getPassword() + "\"";
-        String sql = "select * from user where (qq=" + telephone + " or email=" + telephone + " or telephone=" + telephone + ") and password=" + password + "";
+        String sql = "select * from user where telephone=" + user.getTelephone() + " and password=" + user.getPassword() + "";
         System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
@@ -37,6 +35,9 @@ public class UserService {
                 System.out.println("成功关闭数据库");
                 return true;
             }
+            DB.close(ps);
+            DB.close(conn);
+            System.out.println("成功关闭数据库");
             return false;
         } catch (SQLException e1) {
             e1.printStackTrace();
@@ -90,5 +91,28 @@ public class UserService {
         System.out.println("成功关闭数据库");
     }
 
-//    public boolean checkemail( email){}
+    public boolean checkuser(String telephone) {
+        System.out.println("开始checkuser");
+        Connection conn = DB.createConn();
+        String sql = "select * from user where telephone="+ telephone+"";
+        System.out.println(sql);
+        PreparedStatement ps = DB.prepare(conn, sql);
+        try {
+            ResultSet e = ps.executeQuery();
+            if (e.next()) {
+                DB.close(ps);
+                DB.close(conn);
+                System.out.println("找到了 成功关闭数据库");
+                return true;
+            }
+            DB.close(ps);
+            DB.close(conn);
+            System.out.println("成功关闭数据库");
+            return false;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return false;
+    }
+
 }
