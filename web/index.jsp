@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>社团管理系统</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <%--图标待制作--%>
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -30,7 +31,7 @@
             <h5 align="center">科技是第一生产力</h5>
             <p><a href="register.jsp" class="button button-big button-fill external">注册 </a></p>
             <p><a href="login.jsp" class="button button-big button-fill button-success ">登录 </a></p>
-            <p><a href="http://159.203.237.145/" class="external"
+            <p><a href="http://159.203.237.145/wordpress/" class="external"
                   style="color:#aebdc9;font-size: 12px;text-align: center; display: block;">海风商创出品 · 何益鑫</a></p>
         </div>
     </div>

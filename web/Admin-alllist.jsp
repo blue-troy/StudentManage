@@ -13,9 +13,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <%--<script src="//cdn.bootcss.com/bootstrap-table/1.11.0/bootstrap-table.js"></script>--%>
-    <%--<script src="//cdn.bootcss.com/bootstrap-table/1.11.0/extensions/export/bootstrap-table-export.js"></script>--%>
-    <%--<script src="//cdn.bootcss.com/TableExport/3.2.9/js/tableexport.min.js"></script>--%>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="js/FileSaver.min.js"></script>
     <script type="text/javascript" src="js/tableExport.js"></script>

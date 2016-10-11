@@ -40,7 +40,7 @@
                                 <div class="item-content">
                                     <div class="item-media"><i class="icon icon-form-name"></i></div>
                                     <div class="item-inner">
-                                        <div class="item-title label">手机/邮箱</div>
+                                        <div class="item-title label">手机</div>
                                         <div class="item-input">
                                             <input type="text" name="user.telephone" placeholder="number">
                                         </div>

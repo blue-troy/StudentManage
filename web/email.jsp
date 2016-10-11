@@ -11,22 +11,6 @@
     <%--<script type="text/javascript" src="js/FileSaver.min.js"></script>--%>
     <%--<script type="text/javascript" src="js/tableExport.js"></script>--%>
     <script>
-//        $(document).ready( function () {
-//            $("#checks").click(function () {
-//                $.ajax({
-//                    url:'/json/email',
-//                    type:'POST',
-//                    data:,
-//                    dataType:'json',
-//                    success:function (data) {
-//                        alert("邮箱是"+ data.email);
-//                    }
-//
-//                });
-//            });
-//                }
-//
-//        );
         function test(email) {
             var params = {
                 email : email,
