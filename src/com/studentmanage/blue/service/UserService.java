@@ -91,7 +91,7 @@ public class UserService {
         System.out.println("成功关闭数据库");
     }
 
-    public boolean checkuser(String telephone) {
+    public boolean check_phone(String telephone) {
         System.out.println("开始checkuser");
         Connection conn = DB.createConn();
         String sql = "select * from user where telephone="+ telephone+"";
@@ -115,4 +115,47 @@ public class UserService {
         return false;
     }
 
+    public boolean register_with_check_phone(User user) {
+
+        Connection conn = DB.createConn();
+        String sql = "select * from user where telephone="+ user.getTelephone()+"";
+        String sql1= "insert into user values (NULL,?,?,?,?,?,?,?,?)";
+        System.out.println(sql);
+        PreparedStatement ps = DB.prepare(conn, sql);
+        try {
+            ResultSet e = ps.executeQuery();
+            if (e.next()) {
+                DB.close(ps);
+                DB.close(conn);
+                System.out.println("找到了 成功关闭数据库");
+                return true;
+            }
+            DB.close(ps);
+
+            System.out.println("不存在，开始插入");
+            PreparedStatement ps1= DB.prepare(conn,sql1);
+            try {
+                ps1.setString(1, user.getName());
+                ps1.setString(2, user.getEmail());
+                ps1.setString(3, user.getQq());
+                ps1.setString(4, user.getMajor());
+                ps1.setString(5, user.getPassword());
+                ps1.setString(6, user.getSex());
+                ps1.setString(7, user.getInfo());
+                ps1.setString(8, user.getTelephone());
+                System.out.println(sql1);
+                ps1.executeUpdate();
+
+            }catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            DB.close(ps1);
+            DB.close(conn);
+            System.out.println("成功关闭数据库");
+            return false;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return false;
+    }
 }
