@@ -60,14 +60,31 @@ public class LoginAction extends ActionSupport {
         System.out.println(email);
         return "success";
     }
-    public String checkuser() throws Exception {
+    public String check_phone() throws Exception {
         System.out.println(telephone);
-        if (this.userService.checkuser(this.telephone)){
+        if (this.userService.check_phone(this.telephone)){
             status="0";
             }else {
             status="1";
         }
         System.out.println(status);
+        return "success";
+    }
+    public String register_with_check_phone() throws Exception {
+        if (this.userService.register_with_check_phone(this.user)){
+            status="0";
+        }else {
+            ActionContext actionContext = ActionContext.getContext();
+            Map session = actionContext.getSession();
+            session.put("user_id", user.getId());
+            session.put("user_name", user.getName());
+            session.put("user_email", user.getEmail());
+            session.put("user_qq", user.getQq());
+            session.put("uer_major", user.getMajor());
+            session.put("user_sex", user.getSex());
+            session.put("user_info", user.getInfo());
+            status="1";
+        }
         return "success";
     }
 
@@ -119,4 +136,6 @@ public class LoginAction extends ActionSupport {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
 }

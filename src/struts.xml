@@ -15,7 +15,10 @@
         <action name="register" class="com.studentmanage.blue.action.LoginAction" method="register">
             <result>/index.jsp</result>
         </action>
-        <action name="checkuser" class="com.studentmanage.blue.action.LoginAction" method="checkuser">
+        <action name="register_with_check_phone" class="com.studentmanage.blue.action.LoginAction" method="register_with_check_phone">
+            <result type="json"><param name="includeProperties">status</param></result>
+        </action>
+        <action name="check_phone" class="com.studentmanage.blue.action.LoginAction" method="check_phone">
             <result type="json">
                 <param name="includeProperties">status</param>
             </result>
