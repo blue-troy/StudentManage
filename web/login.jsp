@@ -20,6 +20,10 @@
     </style>
 </head>
 <body>
+<%
+    String telephone=request.getParameter("telephone");
+
+%>
 <div class="page-group">
     <!-- 你的html代码 -->
     <div class="page">
@@ -42,7 +46,7 @@
                                     <div class="item-inner">
                                         <div class="item-title label">手机</div>
                                         <div class="item-input">
-                                            <input type="text" name="user.telephone" placeholder="number">
+                                            <input type="text" name="user.telephone" placeholder="number" value="<%=telephone%>" >
                                         </div>
                                     </div>
                                 </div>

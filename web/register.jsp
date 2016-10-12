@@ -17,37 +17,13 @@
 
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
-    <script>
-        function check() {
-            var params = {
-                telephone :$("#telephone").val(),
-            };
-            $.ajax({
-                type:'POST',
-                url:'/user/checkuser',
-                data:params,
-                dataType:'json',
-                success:function (result) {
-                    if(result.status.match(0)){
-//                        alert("账号已经被注册");
-                        $("#telephone").attr("placeholder","账号已经被注册");
-                    }else {
-                        alert("账号没被注册");
-                    }
-                }
-            });
-
-        }
-    </script>
 
 </head>
 <body>
 <div class="page-group">
-    <!-- 你的html代码 -->
     <div class="page">
         <div class="content">
-            <!-- 这里是页面内容区 -->
+
             <header class="bar bar-nav">
                 <a class="button button-link button-nav pull-left back" href="#" data-transition='slide-out'>
                     <span class="icon icon-left"></span>
@@ -57,7 +33,6 @@
             </header>
 
             <div class="content">
-                <%--<button onclick="checkemail(12312);">test</button>--%>
                 <form action="/user/register" method="post" id="user_register">
                     <div class="list-block">
                         <ul>
@@ -82,8 +57,8 @@
                                         <div class="item-input">
                                             <input type="email" id="telephone" name="user.telephone"  required
                                                    data-rule-required="true" placeholder="telephone">
-                                            <%--<input type="button" onclick="check();">--%>
                                         </div>
+                                        <a href="#" class="button button-fill" onclick="check();">验证</a>
                                     </div>
                                 </div>
                             </li>
@@ -164,7 +139,7 @@
                     <div class="content-block">
                         <div class="row">
                             <div class="col-50"><a href="#"
-                                                   class="button button-big button-fill button-danger back">取消</a></div>
+                                                   class="button button-big button-fill back">取消</a></div>
                             <%--<div class="col-50"><a href="#" class="button button-big button-fill button-success disabled" id="register" >提交</a></div>--%>
                             <div class="col-50"><a href="javascript:document:user_register.submit();"
                                                    class="button button-big button-fill button-success ">提交</a></div>
@@ -172,22 +147,59 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
-
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='<%=basePath%>js/sm-city-picker.min.js' charset='utf-8'></script>
 <script>
+//    验证输入值
+    function check() {
+        var params = {
+            telephone :$("#telephone").val(),
+        };
+        $.ajax({
+            type:'POST',
+            url:'/user/checkuser',
+            data:params,
+            dataType:'json',
+            success:function (result) {
+                if(result.status.match(0)){
+                    $.confirm('号码已经被注册，是否直接登录',
+                            function () {
+//                                传号码值，进入登录页面
+//                                alert("传号码值，进入登录页面")
+                                var url="/login.jsp?telephone="+$("#telephone").val()
+                                window.location.assign(url)
+                            },
+                            function () {
+//                                清空号码值
+                                $("#telephone").val("")
+                            }
+                    );
+                }else {
+                    alert("账号没被注册")
+                }
+            }
+        });
+
+    }
+
+//    选择学院专业
     $("#city-picker").cityPicker({
         toolbarTemplate: '<header class="bar bar-nav">\
     <button class="button button-link pull-right close-picker">确定</button>\
     <h1 class="title">选择学院专业</h1>\
     </header>'
     });
+    $(document).on('click','.confirm-ok', function () {
+        $.confirm('Are you sure?', function () {
+            $.alert('You clicked Ok button');
+        });
+    });
+
     $.init();
 </script>
 </body>
