@@ -30,6 +30,8 @@ public class UserService {
                 user.setId(e.getInt("id"));
                 user.setInfo(e.getString("info"));
                 user.setMajor(e.getString("major"));
+                user.setQq(e.getString("qq"));
+                user.setEmail(e.getString("email"));
                 DB.close(ps);
                 DB.close(conn);
                 System.out.println("成功关闭数据库");
@@ -46,32 +48,34 @@ public class UserService {
 
     }
 
-    public void register(User user) {
-        System.out.println("开始 register ser");
-        Connection conn = DB.createConn();
-        String sql = "insert into user values (NULL,?,?,?,?,?,?,?,?)";
-        PreparedStatement ps = DB.prepare(conn, sql);
-        try {
-            ps.setString(1, user.getName());
-            ps.setString(2, user.getEmail());
-            ps.setString(3, user.getQq());
-            ps.setString(4, user.getMajor());
-            ps.setString(5, user.getPassword());
-            ps.setString(6, user.getSex());
-            ps.setString(7, user.getInfo());
-            ps.setString(8, user.getTelephone());
-            System.out.println(sql);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        DB.close(ps);
-        DB.close(conn);
-        System.out.println("成功关闭数据库");
-    }
+//    放弃的无验证注册方式
+//    public void register(User user) {
+//        System.out.println("开始 register ser");
+//        Connection conn = DB.createConn();
+//        String sql = "insert into user values (NULL,?,?,?,?,?,?,?,?)";
+//        PreparedStatement ps = DB.prepare(conn, sql);
+//        try {
+//            ps.setString(1, user.getName());
+//            ps.setString(2, user.getEmail());
+//            ps.setString(3, user.getQq());
+//            ps.setString(4, user.getMajor());
+//            ps.setString(5, user.getPassword());
+//            ps.setString(6, user.getSex());
+//            ps.setString(7, user.getInfo());
+//            ps.setString(8, user.getTelephone());
+//            System.out.println(sql);
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        DB.close(ps);
+//        DB.close(conn);
+//        System.out.println("成功关闭数据库");
+//    }
 
+//直接注册进入社团的方式
     public void registerto(User user) {
-        register(user);
+//        register(user);等待修改
         System.out.println("开始 registerto ser");
         Connection conn = DB.createConn();
         String sql = "insert into relation values (?,?,?,?)";
