@@ -54,7 +54,8 @@
                                     <div class="item-inner">
                                         <div class="item-title label">手机</div>
                                         <div class="item-input">
-                                            <input type="text" id="telephone" name="user.telephone" placeholder="telephone">
+                                            <input type="text" id="telephone" name="user.telephone"
+                                                   placeholder="telephone">
                                         </div>
                                         <a href="#" class="button button-fill" onclick="check_phone()">验证</a>
                                     </div>
@@ -67,7 +68,8 @@
                                     <div class="item-inner">
                                         <div class="item-title label">邮箱</div>
                                         <div class="item-input">
-                                            <input id="email" type="email" name="user.email" placeholder="E-mail" onBlur="check_email()">
+                                            <input id="email" type="email" name="user.email" placeholder="E-mail"
+                                                   onBlur="check_email()">
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +80,7 @@
                                     <div class="item-inner">
                                         <div class="item-title label">QQ</div>
                                         <div class="item-input">
-                                            <input id="qq" type="email" name="user.qq" placeholder="QQ" >
+                                            <input id="qq" type="email" name="user.qq" placeholder="QQ">
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +100,7 @@
                                     <div class="item-inner">
                                         <div class="item-title label">密码</div>
                                         <div class="item-input">
-                                            <input type="password" name="user.password" placeholder="密码可为空" >
+                                            <input type="password" name="user.password" placeholder="密码可为空">
                                         </div>
                                     </div>
                                 </div>
@@ -136,8 +138,8 @@
                                                    class="button button-big button-fill back ">取消</a></div>
                             <%--<div class="col-50"><a href="#" class="button button-big button-fill button-success disabled" id="register" >提交</a></div>--%>
                             <%--<div class="col-50"><a href="javascript:document:user_register.submit();"--%>
-                                                   <%--class="button button-big button-fill button-success ">提交</a></div>
-                                                   --%>
+                            <%--class="button button-big button-fill button-success ">提交</a></div>
+                            --%>
                             <div class="col-50"><a href="#" onclick="check_isnull()"
                                                    class="button button-big button-fill button-success ">提交</a></div>
                         </div>
@@ -154,17 +156,17 @@
 <script>
     function register_with_check_phone() {
         $.ajax({
-            type:'POST',
-            url:'/user/register_with_check_phone',
-            data:$('#user_register').serialize(),
-            dataType:'json',
-            success:function (result) {
-                if(result.status.match(0)){
+            type: 'POST',
+            url: '/user/register_with_check_phone',
+            data: $('#user_register').serialize(),
+            dataType: 'json',
+            success: function (result) {
+                if (result.status.match(0)) {
                     $.confirm('号码已经被注册，是否直接登录',
                             function () {
 //                                传号码值，进入登录页面
 //                                alert("传号码值，进入登录页面")
-                                var url="/login.jsp?telephone="+$("#telephone").val()
+                                var url = "/login.jsp?telephone=" + $("#telephone").val()
                                 window.location.assign(url)
                             },
                             function () {
@@ -172,35 +174,35 @@
                                 $("#telephone").val("")
                             }
                     );
-                }else {
+                } else {
 //                    $.alert("账号没被注册")
 //                    document.getElementById("email").disabled=""
 //                    document.getElementById("email").focus()
 //                    document:user_register.submit()
-                    $.alert("注册成功",function () {
+                    $.alert("注册成功", function () {
                         window.location.assign("/groupindex.jsp")
                     })
                 }
             }
         });
     }
-//    验证输入值
+    //    验证输入值
     function check_phone() {
         var params = {
-            telephone :$("#telephone").val(),
+            telephone: $("#telephone").val(),
         };
         $.ajax({
-            type:'POST',
-            url:'/user/check_phone',
-            data:params,
-            dataType:'json',
-            success:function (result) {
-                if(result.status.match(0)){
+            type: 'POST',
+            url: '/user/check_phone',
+            data: params,
+            dataType: 'json',
+            success: function (result) {
+                if (result.status.match(0)) {
                     $.confirm('号码已经被注册，是否直接登录',
                             function () {
 //                                传号码值，进入登录页面
 //                                alert("传号码值，进入登录页面")
-                                var url="/login.jsp?telephone="+$("#telephone").val()
+                                var url = "/login.jsp?telephone=" + $("#telephone").val()
                                 window.location.assign(url)
                             },
                             function () {
@@ -209,7 +211,7 @@
                                 document.getElementById("email").focus()
                             }
                     );
-                }else {
+                } else {
                     $.alert("账号没被注册")
 //                    document.getElementById("email").disabled=""
 //                    document.getElementById("email").focus()
@@ -220,61 +222,61 @@
 
     }
 
-//    验证各项输入值
+    //    验证各项输入值
     function check_email() {
-    var email=$('#email').val()
-    with (email){
-        apos=email.indexOf("@")
-        dotpos=email.lastIndexOf(".")
-        if (apos<1||dotpos-apos<2){
-            $.alert("邮件格式错误",function () {
+        var email = $('#email').val()
+        with (email) {
+            apos = email.indexOf("@")
+            dotpos = email.lastIndexOf(".")
+            if (apos < 1 || dotpos - apos < 2) {
+                $.alert("邮件格式错误", function () {
 //                $.alert("shit")
-                $('#email').val("")
+                    $('#email').val("")
 //                document.getElementById("email").focus()
-            })
+                })
 //            清空
 //            重置焦点位置到emial
-        }else {
+            } else {
 //            重置焦点位置到下一个
 //            alert("格式正确")
-            document.getElementById("qq").disabled=""
-            document.getElementById("qq").focus()
+                document.getElementById("qq").disabled = ""
+                document.getElementById("qq").focus()
+            }
         }
     }
-}
 
-//验证是否需要的值都输入了
+    //验证是否需要的值都输入了
     function check_isnull() {
-        var name=document.getElementById("name").value.trim()
-        var telephone=document.getElementById("telephone").value.trim()
-        var email=document.getElementById("email").value.trim()
-        var qq=document.getElementById("qq").value.trim()
-        var major=document.getElementById("city-picker").value.trim()
-        var sex=document.getElementById("sex").value.trim()
-        if (name==null||name==""){
+        var name = document.getElementById("name").value.trim()
+        var telephone = document.getElementById("telephone").value.trim()
+        var email = document.getElementById("email").value.trim()
+        var qq = document.getElementById("qq").value.trim()
+        var major = document.getElementById("city-picker").value.trim()
+        var sex = document.getElementById("sex").value.trim()
+        if (name == null || name == "") {
             $.alert("姓名不能为空")
             document.getElementById("name").focus()
-        }else if (telephone==null||telephone==""){
-                $.alert("手机号码不能为空")
-                document.getElementById("telephone").focus()
-        }else if (email==null||email==""){
-                    $.alert("邮箱不能为空")
-                    document.getElementById("email").focus()
-        }else if (qq==null||qq==""){
-                        $.alert("QQ不能为空")
-                        document.getElementById("qq").focus()
-        }else if (major==null||major==""){
-                            $.alert("学院专业不能为空")
-                            document.getElementById("city-picker").onclick
-        }else if (sex==null||sex==""){
-                                $.alert("性别不能为空")
-                                document.getElementById("sex").focus()
-                            }else {
+        } else if (telephone == null || telephone == "") {
+            $.alert("手机号码不能为空")
+            document.getElementById("telephone").focus()
+        } else if (email == null || email == "") {
+            $.alert("邮箱不能为空")
+            document.getElementById("email").focus()
+        } else if (qq == null || qq == "") {
+            $.alert("QQ不能为空")
+            document.getElementById("qq").focus()
+        } else if (major == null || major == "") {
+            $.alert("学院专业不能为空")
+            document.getElementById("city-picker").click()
+        } else if (sex == null || sex == "") {
+            $.alert("性别不能为空")
+            document.getElementById("sex").focus()
+        } else {
             register_with_check_phone()
         }
 
     }
-//    选择学院专业
+    //    选择学院专业
     $("#city-picker").cityPicker({
         toolbarTemplate: '<header class="bar bar-nav">\
     <button class="button button-link pull-right close-picker">确定</button>\

@@ -21,6 +21,7 @@ public class LoginAction extends ActionSupport {
 
 
     public LoginAction() {
+
     }
 
     public String login() throws Exception {
@@ -31,18 +32,19 @@ public class LoginAction extends ActionSupport {
             session.put("user_name", user.getName());
             session.put("user_email", user.getEmail());
             session.put("user_qq", user.getQq());
-            session.put("uer_major", user.getMajor());
+            session.put("user_major", user.getMajor());
             session.put("user_sex", user.getSex());
             session.put("user_info", user.getInfo());
+            session.put("user_telephone",user.getTelephone());
             return "success";
         }
         return "error";
     }
-
-    public String register() throws Exception {
-        this.userService.register(this.user);
-        return "success";
-    }
+//放弃的无验证注册方式
+//    public String register() throws Exception {
+//        this.userService.register(this.user);
+//        return "success";
+//    }
 
     public String registerto() throws Exception {
         this.userService.registerto(this.user);
