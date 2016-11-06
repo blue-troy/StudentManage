@@ -112,7 +112,7 @@
                 </div>
                 <s:debug></s:debug>
                 <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Department-list?gid=<%=id%>" class="button button-big button-fill">选择部门</a></p>
+                <p><a href="group/Department-list?gid=<%=id%>&gname=<%=name%>" class="button button-big button-fill">选择部门</a></p>
                 <%--<p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>"--%>
                       <%--class="button button-big button-fill button-success">加入社团 </a></p>--%>
             </div>

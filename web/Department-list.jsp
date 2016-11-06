@@ -39,7 +39,7 @@
                         <ul>
                             <s:iterator value="departments" var="d">
                                 <li>
-                                    <a href="/Department-info.jsp?departmentId=<s:property value="#d.id"/>&departmentName=<s:property value="#d.name"/>&groupId=<s:property value="#d.gid"/> "
+                                    <a href="/Department-info.jsp?departmentId=<s:property value="#d.id"/>&departmentName=<s:property value="#d.name"/>&groupId=<s:property value="#d.gid"/>&gname=<s:property value="#parameters.gname"/> "
                                        class="item-link item-content">
                                         <div class="item-content">
                                             <div class="item-inner">
@@ -54,8 +54,8 @@
                     </div>
                 </div>
                 <s:debug></s:debug>
-                <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Department-info?gid=<%=id%>" class="button button-big button-fill">选择部门</a></p>
+                <%--<p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>--%>
+                <%--<p><a href="group/Department-info?gid=<%=id%>" class="button button-big button-fill">选择部门</a></p>--%>
                 <%--<p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>"--%>
                 <%--class="button button-big button-fill button-success">加入社团 </a></p>--%>
             </div>
