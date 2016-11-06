@@ -43,21 +43,7 @@
         </nav>
         <div class="content">
             <div class="list-block">
-                <ul>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title label">所属机构</div>
-                                <input type="text" id='picker'/>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
 
-
-                1. 选择社团
-                2. 管理
             </div>
         </div>
         </div>
