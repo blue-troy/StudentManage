@@ -2,7 +2,6 @@ package com.studentmanage.blue.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.studentmanage.blue.model.Department;
 import com.studentmanage.blue.model.Group;
 import com.studentmanage.blue.service.GroupService;
 
@@ -22,7 +21,7 @@ public class GroupAction extends ActionSupport {
     private String gname;
     private int uid;
     private String uname;
-    private int department_id;
+    private int departmentId;
 
     public GroupAction() {
     }
@@ -46,7 +45,7 @@ public class GroupAction extends ActionSupport {
         this.setUid(((Integer) session.get("user_id")).intValue());
         this.setUname((String) session.get("user_name"));
 
-        this.groupService.join(this.getUid(), this.getUname(), this.getGid(), this.getGname(),this.department_id);
+        this.groupService.join(this.getUid(), this.getUname(), this.getGid(), this.getGname(),this.departmentId);
         return "groupindex";
     }
 
@@ -111,11 +110,11 @@ public class GroupAction extends ActionSupport {
         this.uname = uname;
     }
 
-    public int getDepartment_id() {
-        return department_id;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment_id(int department_id) {
-        this.department_id = department_id;
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 }

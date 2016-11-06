@@ -42,7 +42,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">部门名称</div>
                                     <div class="item-input">
-                                        <s:property value="name"></s:property>
+                                        <s:property value="#parameters.departmentName"></s:property>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                 </div>
                 <s:debug></s:debug>
                 <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Group-join?gid=#gid&gname=#gname&department=#id"
+                <p><a href="group/Group-join?gid=<s:property value="#parameters.groupId"/>&departmentId=<s:property value="#parameters.departmentId"/>&gname=<s:property value="#parameters.gname"/>"
                       class="button button-big button-fill button-success">申请加入 </a></p>
             </div>
         </div>

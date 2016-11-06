@@ -94,7 +94,8 @@ public class GroupService {
     public void join(int uid, String uname, int gid, String gname,int department_id) {
         System.out.println("开始 join sev");
         Connection conn = DB.createConn();
-        String sql = "insert into relation values (" + uid + "," + gid + "," + uname + "," + gname + ",4,"+department_id + ")";
+        String sql = "insert into relation values (" + uid + "," + gid + ",'" + uname + "','" + gname + "',4,"+department_id + ")";
+        System.out.println(sql);
         PreparedStatement ps = DB.prepare(conn, sql);
         try {
             ps.executeUpdate();
