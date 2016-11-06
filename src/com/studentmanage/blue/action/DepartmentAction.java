@@ -61,4 +61,5 @@ public class DepartmentAction extends ActionSupport {
         this.gid = gid;
     }
 
+
 }
