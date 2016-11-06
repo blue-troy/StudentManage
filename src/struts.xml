@@ -6,35 +6,35 @@
 
 <struts>
     <constant name="struts.devMode" value="true"></constant><!--热部署-->
-    <package name="login" namespace="/user" extends="json-default">
+    <package name="user" namespace="/user" extends="json-default">
         <global-results>
             <result >/index.jsp</result>
-            <result name="loginerror">/login.jsp</result>
-            <result name="registererror">/register.jsp</result>
         </global-results>
-        <action name="register" class="com.studentmanage.blue.action.LoginAction" method="register">
-            <result>/index.jsp</result>
-        </action>
-        <action name="register_with_check_phone" class="com.studentmanage.blue.action.LoginAction" method="register_with_check_phone">
+        <!--注册-->
+        <action name="register_with_check_phone" class="com.studentmanage.blue.action.UserAction" method="register_with_check_phone">
             <result type="json"><param name="includeProperties">status</param></result>
         </action>
-        <action name="check_phone" class="com.studentmanage.blue.action.LoginAction" method="check_phone">
+        <action name="check_phone" class="com.studentmanage.blue.action.UserAction" method="check_phone">
             <result type="json">
                 <param name="includeProperties">status</param>
             </result>
         </action>
         <!--加入固定社团人员的注册方式，注册后无密码-->
-        <action name="registerto" class="com.studentmanage.blue.action.LoginAction" method="registerto">
+        <action name="registerto" class="com.studentmanage.blue.action.UserAction" method="registerto">
             <result>/registerto.jsp</result>
         </action>
-        <action name="login" class="com.studentmanage.blue.action.LoginAction" method="login">
-            <result>/groupindex.jsp</result>
+        <!--登录-->
+        <action name="login" class="com.studentmanage.blue.action.UserAction" method="login">
+            <result type="redirectAction">
+                <param name="namespace">/group</param>
+                <param name="actionName">Group-list</param>
+            </result>
         </action>
     </package>
     <package name="group" namespace="/group" extends="struts-default">
-        <action name="index">
-            <result>/index.jsp</result>
-        </action>
+        <global-results>
+            <result >/Group-list.jsp</result>
+        </global-results>
         <action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">
             <result>/{1}-{2}.jsp</result>
             <result name="groupindex">/groupindex.jsp</result>
@@ -43,22 +43,13 @@
         </action>
     </package>
     <package name="admin" namespace="/admin" extends="struts-default">
-        <action name="index">
-            <result>/index.jsp</result>
-        </action>
+        <global-results>
+            <result >/Group-list.jsp</result>
+        </global-results>
         <action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">
             <result>/{1}-{2}.jsp</result>
             <exception-mapping result="error" exception="java.sql.SQLException"/>
             <result name="error">/error.jsp</result>
-        </action>
-    </package>
-    <package name="json" namespace="/json" extends="json-default">
-        <action name="index" class="com.studentmanage.blue.action.JsonAction" method="execute">
-            <result name="index">/index.jsp</result>
-        </action>
-        <action name="email" class="com.studentmanage.blue.action.JsonAction" method="emailcheck">
-            <result name="success" type="json">
-            </result>
         </action>
     </package>
 </struts>
