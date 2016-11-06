@@ -6,7 +6,7 @@
 %>
 <html>
 <head>
-    <base href="<%=basePath%>">
+    <%--<base href="<%=basePath%>">--%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>社团管理系统</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by heyixin on 2016/9/8.
  */
-public class LoginAction extends ActionSupport {
+public class UserAction extends ActionSupport {
     private User user;
     private UserService userService = new UserService();
     private String email;
@@ -20,7 +20,7 @@ public class LoginAction extends ActionSupport {
 
 
 
-    public LoginAction() {
+    public UserAction() {
 
     }
 
@@ -40,11 +40,6 @@ public class LoginAction extends ActionSupport {
         }
         return "error";
     }
-//放弃的无验证注册方式
-//    public String register() throws Exception {
-//        this.userService.register(this.user);
-//        return "success";
-//    }
 
     public String registerto() throws Exception {
         this.userService.registerto(this.user);

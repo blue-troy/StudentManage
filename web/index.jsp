@@ -29,6 +29,9 @@
             <!-- 这里是页面内容区 -->
             <h2 align="center" style="color: #0f88eb">社团管理系统</h2>
             <h5 align="center">科技是第一生产力</h5>
+            <div align="center">
+            <img src="images/logo.png"  style="width: 6rem;">
+            </div>
             <p><a href="register.jsp" class="button button-big button-fill external">注册 </a></p>
             <p><a href="login.jsp" class="button button-big button-fill button-success ">登录 </a></p>
             <p><a href="http://159.203.237.145/wordpress/" class="external"

@@ -31,16 +31,8 @@
                     <span class="icon icon-left"></span>
                     返回
                 </a>
-                <h1 class='title'>社团信息</h1>
+                <h1 class='title'>部门信息</h1>
             </header>
-            <%
-                String id = request.getParameter("id");
-                String name = request.getParameter("name");
-                String date = request.getParameter("date");
-                String teacher = request.getParameter("teacher");
-                String organization = request.getParameter("organization");
-                String info = request.getParameter("info");
-            %>
             <div class="content">
                 <div class="list-block">
                     <ul>
@@ -48,9 +40,9 @@
                             <div class="item-content">
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title label">社团名称</div>
+                                    <div class="item-title label">部门名称</div>
                                     <div class="item-input">
-                                        <%=name%>
+                                        <s:property value="name"></s:property>
                                     </div>
                                 </div>
                             </div>
@@ -61,39 +53,12 @@
                             <div class="item-content">
                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title label">指导老师</div>
+                                    <div class="item-title label">部长</div>
                                     <div class="item-input">
-                                        <%=teacher%>
+                                        功能待加入
                                     </div>
                                 </div>
                             </div>
-                        </li>
-
-
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-calendar"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">成立时间</div>
-                                    <div class="item-input">
-                                        <%=date%>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title label">所属机构</div>
-                                    <div class="item-input">
-                                        <%=organization%>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                         </li>
 
 
@@ -103,7 +68,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">社团简介</div>
                                     <div class="item-input">
-                                        <textarea disabled><%=info%></textarea>
+                                        功能待加入，数据库未有此字段
                                     </div>
                                 </div>
                             </div>
@@ -112,14 +77,13 @@
                 </div>
                 <s:debug></s:debug>
                 <p><a href="#" class="button button-big button-fill button-danger back">返回 </a></p>
-                <p><a href="group/Department-list?gid=<%=id%>" class="button button-big button-fill">选择部门</a></p>
-                <%--<p><a href="group/Group-join?gid=<%=id%>&gname=<%=name%>"--%>
-                      <%--class="button button-big button-fill button-success">加入社团 </a></p>--%>
+                <p><a href="group/Group-join?gid=#gid&gname=#gname&department=#id"
+                      class="button button-big button-fill button-success">申请加入 </a></p>
             </div>
         </div>
     </div>
 </div>
-
+<s:debug></s:debug>
 
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
