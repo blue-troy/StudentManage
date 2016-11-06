@@ -18,8 +18,6 @@ public class UserAction extends ActionSupport {
     private String status;//存在0 不存在1
 
 
-
-
     public UserAction() {
 
     }

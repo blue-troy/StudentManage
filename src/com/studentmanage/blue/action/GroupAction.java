@@ -26,12 +26,12 @@ public class GroupAction extends ActionSupport {
     public GroupAction() {
     }
 //    创建社团
-    public String creat() throws Exception {
+    public String create() throws Exception {
         ActionContext actionContext = ActionContext.getContext();
         Map session = actionContext.getSession();
         this.group.setCreatid(((Integer) session.get("user_id")).intValue());
-        this.groupService.creat(this.group);
-        return "groupindex";
+        gid=this.groupService.create(this.group);
+        return "success";
     }
 //模糊查询社团信息
     public String list() throws SQLException {

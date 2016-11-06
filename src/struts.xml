@@ -43,13 +43,19 @@
         </action>
     </package>
     <package name="admin" namespace="/admin" extends="struts-default">
-        <global-results>
-            <result >/Group-list.jsp</result>
-        </global-results>
-        <action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">
-            <result>/{1}-{2}.jsp</result>
-            <exception-mapping result="error" exception="java.sql.SQLException"/>
-            <result name="error">/error.jsp</result>
+        <!--<global-results>-->
+            <!--<result >/Group-list.jsp</result>-->
+        <!--</global-results>-->
+        <action name="Group-create" class="com.studentmanage.blue.action.GroupAction" method="create">
+            <result>/Department-create.jsp</result>
         </action>
+        <action name="Department-create" class="com.studentmanage.blue.action.GroupAction" method="create">
+            <result>/Department-create.jsp</result>
+        </action>
+        <!--<action name="*-*" class="com.studentmanage.blue.action.{1}Action" method="{2}">-->
+            <!--<result>/{1}-{2}.jsp</result>-->
+            <!--<exception-mapping result="error" exception="java.sql.SQLException"/>-->
+            <!--<result name="error">/error.jsp</result>-->
+        <!--</action>-->
     </package>
 </struts>

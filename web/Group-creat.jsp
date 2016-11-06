@@ -48,7 +48,7 @@
             <div class="creat">
 
                 <div class="content">
-                    <form action="group/Group-creat" method="post" id="group_creat">
+                    <form action="admin/Group-create" method="post" id="group_creat">
                         <div class="list-block">
                             <ul>
                                 <li>

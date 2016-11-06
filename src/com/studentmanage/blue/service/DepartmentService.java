@@ -39,5 +39,19 @@ public class DepartmentService {
         DB.close(conn);
         return departments;
     }
+
+    public void create(Department department) {
+        System.out.println("创建部门");
+        Connection conn = DB.createConn();
+        String sql="INSERT INTO department (name, gid) VALUES ('"+department.getName()+"',"+department.getGid()+")";
+        PreparedStatement ps =DB.prepare(conn,sql);
+        try {
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        DB.close(ps);
+        DB.close(conn);
+    }
 }
 

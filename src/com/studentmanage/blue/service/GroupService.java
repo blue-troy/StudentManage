@@ -3,10 +3,7 @@ package com.studentmanage.blue.service;
 import com.studentmanage.blue.model.Group;
 import com.studentmanage.blue.util.DB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,27 +14,41 @@ public class GroupService {
     public GroupService() {
     }
 
-    public String creat(Group group) {
+//    创建社团并返回社团id
+    public int  create(Group group) throws SQLException {
         System.out.println("开始 register ser");
+        int id=-1;
         Connection conn = DB.createConn();
-        String sql = "insert into groups values (NULL,?,?,?,?,?,?)";
-        PreparedStatement ps = DB.prepare(conn, sql);
+        String sql = "insert into groups values (NULL,?,?,?,?,?,?);";
+        PreparedStatement pstat = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        Statement stat = conn.createStatement();
         try {
-            ps.setString(1, group.getName());
-            ps.setString(2, group.getTeacher());
-            ps.setString(3, group.getDate());
-            ps.setString(4, group.getOrganization());
-            ps.setString(5, group.getInfo());
-            ps.setInt(6, group.getCreatid());
+
+            pstat.setString(1, group.getName());
+            pstat.setString(2, group.getTeacher());
+            pstat.setString(3, group.getDate());
+            pstat.setString(4, group.getOrganization());
+            pstat.setString(5, group.getInfo());
+            pstat.setInt(6, group.getCreatid());
             System.out.println(sql);
-            ps.executeUpdate();
+            pstat.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        DB.close(ps);
+        try {
+            ResultSet e =pstat.getGeneratedKeys();
+            while (e.next()){
+                id=e.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        DB.close(pstat);
         DB.close(conn);
         System.out.println("成功关闭数据库");
-        return "success";
+        System.out.println(id);
+        return id;
+
     }
 
     public List<Group> list(String gname) throws SQLException {

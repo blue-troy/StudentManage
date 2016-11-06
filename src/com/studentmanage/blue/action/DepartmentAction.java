@@ -24,6 +24,12 @@ public class DepartmentAction extends ActionSupport {
         return SUCCESS;
     }
 
+//    创建社团
+    public String create(){
+        this.departmentService.create(this.department);
+        return SUCCESS;
+    }
+
     @Override
     public String execute() throws Exception {
         return SUCCESS;
