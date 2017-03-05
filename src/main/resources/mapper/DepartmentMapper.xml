@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studentmanage.dao.mapper.DepartmentMapper">
+
+    <resultMap id="BaseResultMap" type="com.studentmanage.dao.entity.Department">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="gid" property="gid"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,gid
+    </sql>
+
+    <sql id="Base_Column_List_Without_id">
+        name,gid
+    </sql>
+
+    <insert id="insert" parameterType="com.studentmanage.dao.entity.Department" useGeneratedKeys="true" keyProperty="id">
+        insert into department
+         <include refid="Base_Column_List_Without_id"/>
+         values (#{name},#{gid});
+    </insert>
+
+    <select id="selectByGid" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM department
+        WHERE gid= #{0}
+    </select>
+
+    <select id="selectByDid" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM department
+        WHERE id= #{0}
+    </select>
+
+
+</mapper>

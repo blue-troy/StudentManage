@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studentmanage.dao.mapper.GroupMapper">
+
+    <resultMap id="BaseResultMap" type="com.studentmanage.dao.entity.Group">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="teacher" property="teacher"/>
+        <result column="date" property="date" javaType="String"/>
+        <result column="organization" property="organization"/>
+        <result column="info" property="info"/>
+        <result column="creatid" property="creatid"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,teacher,date,organization,info,creatid
+    </sql>
+    <sql id="Base_Column_List_Without_id">
+        name,teacher,date,organization,info,creatid
+    </sql>
+
+    <insert id="insert" parameterType="com.studentmanage.dao.entity.Group" useGeneratedKeys="true" keyProperty="id">
+        insert into groups
+        (<include refid="Base_Column_List_Without_id"/>) values
+        (#{name},#{teacher},#{date},#{organization},#{info},#{creatid})
+    </insert>
+
+    <select id="list" resultMap="BaseResultMap">
+        SELECT
+        id,name,teacher,date,organization,info,creatid
+        FROM groups
+        <where>
+            <if test="groupNameInfo!=null">
+                name LIKE #{groupNameInfo}
+            </if>
+        </where>
+    </select>
+
+    <select id="listByCreateId" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM groups
+        WHERE creatid = #{0}
+    </select>
+
+</mapper>

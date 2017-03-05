@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studentmanage.dao.mapper.UserMapper">
+
+
+    <resultMap id="BaseResultMap" type="com.studentmanage.dao.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="qq" property="qq"/>
+        <result column="major" property="major"/>
+        <result column="password" property="password"/>
+        <result column="sex" property="sex"/>
+        <result column="info" property="info"/>
+        <result column="telephone" property="telephone"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMapWithoutPassword" type="com.studentmanage.dao.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="qq" property="qq"/>
+        <result column="major" property="major"/>
+        <result column="sex" property="sex"/>
+        <result column="info" property="info"/>
+        <result column="telephone" property="telephone"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,email,qq,major,password,sex,info,telephone
+    </sql>
+
+    <sql id="Base_Column_List_Without_Password">
+        id,name,email,qq,major,sex,info,telephone
+    </sql>
+
+
+    <insert id="insert" parameterType="com.studentmanage.dao.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (name,email,qq,major,password,sex,info,telephone) SELECT
+        #{name,jdbcType=CHAR},#{email,jdbcType=CHAR},#{qq,jdbcType=CHAR},#{major,jdbcType=CHAR},#{password,jdbcType=CHAR},#{sex,jdbcType=CHAR},#{info,jdbcType=CHAR},#{telephone,jdbcType=CHAR}
+        FROM user WHERE NOT EXISTS (SELECT telephone FROM user WHERE telephone = #{telephone}) limit 1
+    </insert>
+
+    <select id="selectForLogin" parameterType="String" resultMap="BaseResultMapWithoutPassword">
+        SELECT
+        <include refid="Base_Column_List_Without_Password"/>
+        FROM user WHERE telephone = #{0} AND password =#{1}
+    </select>
+
+    <select id="selectById" parameterType="int" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user WHERE id = #{0}
+    </select>
+
+    <select id="selectByTelephone" parameterType="String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user WHERE telephone = #{0}
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM user WHERE id= #{id}
+    </delete>
+
+    <select id="listByGroupIdAndGrade" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM relation RIGHT JOIN user ON relation.uid = user.id WHERE relation.gid = #{0}
+        <if test="grade!=Null">AND grade= #{1}</if>
+    </select>
+
+</mapper>

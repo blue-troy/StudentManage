@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.studentmanage.dao.mapper.RelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.studentmanage.dao.entity.Relation">
+        <id column="uid" property="uid"/>
+        <result column="gid" property="gid"/>
+        <result column="uname" property="uname"/>
+        <result column="gname" property="gname"/>
+        <result column="grade" property="grade"/>
+        <result column="department" property="department"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,gid,uname,gname,grade,department
+    </sql>
+
+    <sql id="Base_Column_List_Without_grade">
+        uid,gid,uname,gname,department
+    </sql>
+
+    <insert id="insertAsApplication" parameterType="com.studentmanage.dao.entity.Relation">
+        insert into relation
+        <include refid="Base_Column_List_Without_grade"/>
+        values (#{uid},#{gid},#{uname},#{gname},#{department});
+    </insert>
+
+    <update id="updateAsGrade" parameterType="com.studentmanage.dao.entity.Relation">
+        update relation set grade = #{grade}
+        <where>
+            uid=#{uid}
+            AND gid =#{gid}
+            <if test="department!=null">
+                AND department =#{department}
+            </if>
+        </where>
+    </update>
+
+    <update id="updateToChangeDepartment" parameterType="Integer">
+        update relation set department = #{2}
+        WHERE uid = #{0} and department = #{1}
+    </update>
+
+    <select id="listByUserIdGradeBlow2" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM relation
+        WHERE uid=#{0} AND grade &lt; 2
+    </select>
+
+</mapper>
